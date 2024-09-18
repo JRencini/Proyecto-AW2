@@ -1,0 +1,114 @@
+[
+  {
+    "id": 0,
+    "nombre": "Coliflor",
+    "descripcion": "Coliflor de gran tamaño y sabor suave.",
+    "precio": 430,
+    "imagen": "../../imagenes/coliflor.jpg"
+  },
+  {
+    "id": 1,
+    "nombre": "Bolson de Verduras",
+    "descripcion": "Bolson con variedad de verduras de temporada.",
+    "precio": 1600,
+    "imagen": "../../imagenes/bolson_verduras.jpg"
+  },
+  {
+    "id": 2,
+    "nombre": "Tomates Orgánicos",
+    "descripcion": "Tomates cultivados sin químicos.",
+    "precio": 350,
+    "imagen": "../../imagenes/tomates_organicos.jpg"
+  },
+  {
+    "id": 3,
+    "nombre": "Lechuga Mantecosa",
+    "descripcion": "Lechuga fresca de hoja grande.",
+    "precio": 300,
+    "imagen": "../../imagenes/lechuga_mantecosa.jpg"
+  },
+  {
+    "id": 4,
+    "nombre": "Zanahorias",
+    "descripcion": "Zanahorias frescas y crujientes.",
+    "precio": 400,
+    "imagen": "../../imagenes/zanahorias.jpg"
+  },
+  {
+    "id": 5,
+    "nombre": "Repollos",
+    "descripcion": "Repollos crujientes.",
+    "precio": 750,
+    "imagen": "../../imagenes/repollo.jpg"
+  },
+  {
+    "id": 6,
+    "nombre": "Zapallo",
+    "descripcion": "Zapallo de sabor dulce y textura suave.",
+    "precio": 900,
+    "imagen": "../../imagenes/zapallo.jpg"
+  },
+  {
+    "id": 7,
+    "nombre": "Cebollas Moradas",
+    "descripcion": "Cebollas frescas y de sabor fuerte.",
+    "precio": 550,
+    "imagen": "../../imagenes/cebollas_moradas.jpg"
+  },
+  {
+    "id": 8,
+    "nombre": "Acelga",
+    "descripcion": "Hojas verdes y tiernas.",
+    "precio": 320,
+    "imagen": "../../imagenes/acelga.jpg"
+  },
+  {
+    "id": 9,
+    "nombre": "Espinaca",
+    "descripcion": "Espinacas frescas y ricas en hierro.",
+    "precio": 360,
+    "imagen": "../../imagenes/espinaca.jpg"
+  },
+  {
+    "id": 10,
+    "nombre": "Pepinos",
+    "descripcion": "Pepinos frescos y crujientes.",
+    "precio": 410,
+    "imagen": "../../imagenes/pepinos.jpg"
+  },
+  {
+    "id": 11,
+    "nombre": "Remolacha",
+    "descripcion": "Remolachas de color intenso y sabor dulce.",
+    "precio": 650,
+    "imagen": "../../imagenes/remolacha.jpg"
+  },
+  {
+    "id": 12,
+    "nombre": "Calabaza",
+    "descripcion": "Calabaza de excelente sabor.",
+    "precio": 780,
+    "imagen": "../../imagenes/calabaza.jpg"
+  },
+  {
+    "id": 13,
+    "nombre": "Rúcula",
+    "descripcion": "Rúcula de sabor picante y fresco.",
+    "precio": 390,
+    "imagen": "../../imagenes/rucula.jpg"
+  },
+  {
+    "id": 14,
+    "nombre": "Lechuga gallega",
+    "descripcion": "Lechuga pero gallega.",
+    "precio": 490,
+    "imagen": "../../imagenes/lechugaGallega.jpg"
+  },
+  {
+    "id": 15,
+    "nombre": "Zanahoria",
+    "descripcion": "Zanahoria fresca de huerta",
+    "precio": 250.5,
+    "imagen": "../../imagenes/zanahoria.jpg"
+  }
+]

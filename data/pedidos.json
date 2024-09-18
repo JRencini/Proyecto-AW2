@@ -1,0 +1,202 @@
+[
+  {
+    "id": 0,
+    "idCliente": 1,
+    "fecha": "11-09-2024",
+    "cuerpo": [
+      {
+        "idProducto": 2,
+        "observaciones": ""
+      },
+      {
+        "idProducto": 5,
+        "observaciones": ""
+      },
+      {
+        "idProducto": 8,
+        "observaciones": ""
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "idCliente": 0,
+    "fecha": "25/08/2024",
+    "cuerpo": [
+      {
+        "idProducto": 4,
+        "observaciones": ""
+      },
+      {
+        "idProducto": 7,
+        "observaciones": ""
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "idCliente": 3,
+    "fecha": "02/07/2024",
+    "cuerpo": [
+      {
+        "idProducto": 1,
+        "observaciones": ""
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "idCliente": 2,
+    "fecha": "19/06/2024",
+    "cuerpo": [
+      {
+        "idProducto": 0,
+        "observaciones": ""
+      },
+      {
+        "idProducto": 11,
+        "observaciones": ""
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "idCliente": 5,
+    "fecha": "11/05/2024",
+    "cuerpo": [
+      {
+        "idProducto": 13,
+        "observaciones": ""
+      },
+      {
+        "idProducto": 6,
+        "observaciones": ""
+      },
+      {
+        "idProducto": 9,
+        "observaciones": ""
+      },
+      {
+        "idProducto": 3,
+        "observaciones": ""
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "idCliente": 7,
+    "fecha": "28/07/2024",
+    "cuerpo": [
+      {
+        "idProducto": 2,
+        "observaciones": ""
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "idCliente": 6,
+    "fecha": "14/09/2024",
+    "cuerpo": [
+      {
+        "idProducto": 14,
+        "observaciones": ""
+      },
+      {
+        "idProducto": 10,
+        "observaciones": ""
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "idCliente": 4,
+    "fecha": "03/06/2024",
+    "cuerpo": [
+      {
+        "idProducto": 3,
+        "observaciones": ""
+      },
+      {
+        "idProducto": 1,
+        "observaciones": ""
+      },
+      {
+        "idProducto": 12,
+        "observaciones": ""
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "idCliente": 9,
+    "fecha": "17/07/2024",
+    "cuerpo": [
+      {
+        "idProducto": 4,
+        "observaciones": ""
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "idCliente": 8,
+    "fecha": "29/08/2024",
+    "cuerpo": [
+      {
+        "idProducto": 7,
+        "observaciones": ""
+      },
+      {
+        "idProducto": 6,
+        "observaciones": ""
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "idCliente": 1,
+    "fecha": "05/09/2024",
+    "cuerpo": [
+      {
+        "idProducto": 0,
+        "observaciones": ""
+      },
+      {
+        "idProducto": 5,
+        "observaciones": ""
+      },
+      {
+        "idProducto": 9,
+        "observaciones": ""
+      },
+      {
+        "idProducto": 13,
+        "observaciones": ""
+      },
+      {
+        "idProducto": 2,
+        "observaciones": ""
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "idCliente": 3,
+    "fecha": "11/04/2024",
+    "cuerpo": [
+      {
+        "idProducto": 8,
+        "observaciones": ""
+      },
+      {
+        "idProducto": 11,
+        "observaciones": ""
+      },
+      {
+        "idProducto": 14,
+        "observaciones": ""
+      }
+    ]
+  }
+]
