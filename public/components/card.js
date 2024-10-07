@@ -1,38 +1,79 @@
-export const cardComponent = (id, title, img, text, price) => {
-  const formattedPrice = price.toLocaleString('es-AR', { style: 'currency', currency: 'ARS' });
+export const cardComponent = ({ id, nombre, descripcion, precio, imagen }) => {
+  const formattedPrice = precio.toLocaleString('es-AR', { style: 'currency', currency: 'ARS' });
+  const card = document.createElement('div');
+  card.classList.add('card', 'col-md-2', 'mb-4');
 
-  return `
-    <div class="col"> 
-      <div class="card" style="background-color: rgba(11, 11, 11, 0.5);">       
-        <a class"card-link" href="../item/item.html?id=${id}">
-          <img src="${img}" alt="" class="card-img">
-        </a>
-        <div class="card-body">
-          <a class="card-link text-decoration-none text-white" href="../item/item.html?id=${id}"">
-            <h5 class="card-title text-truncate" >${title}</h5>
-            <p class="card-text-description text-secondary">${text}</p>
-          </a>
+  card.innerHTML = `
+    <img src="${imagen}" class="card-img" alt="${nombre}">
+    <div class="card-body">
+      <h5 class="card-title">${nombre}</h5>
+      <p class="card-text"><strong>${formattedPrice}</strong></p>
+    </div>
+  `;
+
+  card.addEventListener('click', () => {
+    openProductModal({ id, nombre, descripcion, precio, imagen });
+  });
+
+  return card;
+};
+
+function openProductModal({ id, nombre, descripcion, precio, imagen }) {
+  const formattedPrice = precio.toLocaleString('es-AR', { style: 'currency', currency: 'ARS' });
+
+  const backdrop = document.createElement('div');
+  backdrop.classList.add('modal-backdrop');
+  document.body.appendChild(backdrop);
+
+  const modal = document.createElement('div');
+  modal.classList.add('product-modal');
+  modal.innerHTML = `
+    <div class="modal-content">
+      <button class="close-btn">&times;</button>
+      <img src="${imagen}" class="product-img" alt="${nombre}">
+      <div class="modal-body">
+        <div class="mb-3 d-flex items-center justify-content-between">
+          <h1 class="text-4xl"><strong>${nombre}</strong></h1>
+          <p class="text-2xl"><strong>${formattedPrice}</strong></p>
         </div>
-        <div class="card-footer">
-          <div class="d-flex ms-auto align-items-center">
-            <div class="col">
-            <input type="hidden" class="hiddenPrice" value="${price}">
-              <p class="price">
-                ${formattedPrice}
-              </p>
-            </div>
-            <div class="col">
-              <input type="number" class="form-control" min="1" max="5" placeholder="1" step="1" value="1"></input>
-            </div>
-              <button class="btn btn-add">
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
-                  <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
-                  <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
-                </svg>            
-              </button>
-          </div>
-        </div>
+        <p class="mb-3">${descripcion}</p>
+        <label for="cantidad">Cantidad:</label>
+        <input type="number" id="cantidad" class="form-control" min="1" max="5" value="1">
+        <label for="observaciones">Observaciones:</label>
+        <textarea id="observaciones" class="form-control" rows="3"></textarea>
+        <button class="btn btn-success mt-3" id="addToCartBtn">Agregar al carrito</button>
       </div>
     </div>
   `;
-};
+  document.body.appendChild(modal);
+
+  modal.querySelector('.close-btn').addEventListener('click', closeModal);
+  backdrop.addEventListener('click', closeModal);
+
+  modal.querySelector('#addToCartBtn').addEventListener('click', () => {
+    const cantidad = document.getElementById('cantidad').value;
+    const observaciones = document.getElementById('observaciones').value;
+
+    addToCart({ id, nombre, descripcion, precio, cantidad, observaciones, imagen });
+
+    closeModal(); 
+  });
+
+  function closeModal() {
+    modal.remove();
+    backdrop.remove();
+  }
+}
+
+function addToCart(producto) {
+  let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+  const productoExistente = carrito.find(item => item.id === producto.id);
+
+  if (productoExistente) {
+    productoExistente.cantidad = producto.cantidad;
+    productoExistente.observaciones = producto.observaciones;
+  } else {
+    carrito.push(producto);
+  }
+  localStorage.setItem('carrito', JSON.stringify(carrito));
+}

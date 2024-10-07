@@ -57,4 +57,16 @@ router.delete('/eliminarPedido/:id', (req, res) => {
   }
 });
 
+router.post('/nuevoPedido', async (req, res) => {
+  const nuevoPedido = req.body;
+  pedidosData.push(nuevoPedido);
+
+  try {
+    await writeFile('./data/pedidos.json', JSON.stringify(pedidosData, null, 2));
+    res.status(201).json({ message: 'Pedido creado exitosamente', pedido: nuevoPedido });
+  } catch (error) {
+    res.status(500).json({ message: 'Error al guardar el pedido', error });
+  }
+});
+
 export default router

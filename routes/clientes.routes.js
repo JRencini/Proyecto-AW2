@@ -47,6 +47,7 @@ router.post('/login', (req, res) => {
 
   if (result) {
     const data = {
+      id: result.id,
       name: result.nombre,
       email: result.email,
       status: true

@@ -4,7 +4,7 @@
     "nombre": "Coliflor",
     "descripcion": "Coliflor de gran tamaño y sabor suave.",
     "precio": 430,
-    "imagen": "../../imagenes/coliflor.jpg",
+    "imagen": "/images/coliflor.jpg",
     "tipoProducto": "HO"
   },
   {
@@ -12,7 +12,7 @@
     "nombre": "Bolson de Verduras",
     "descripcion": "Bolson con variedad de verduras de temporada.",
     "precio": 1600,
-    "imagen": "../../imagenes/bolson_verduras.jpg",
+    "imagen": "/images/bolson_verduras.jpg",
     "tipoProducto": "BO"
   },
   {
@@ -20,7 +20,7 @@
     "nombre": "Tomates Orgánicos",
     "descripcion": "Tomates cultivados sin químicos.",
     "precio": 350,
-    "imagen": "../../imagenes/tomates_organicos.jpg",
+    "imagen": "/images/tomates_organicos.jpg",
     "tipoProducto": "FR"
   },
   {
@@ -28,7 +28,7 @@
     "nombre": "Lechuga Mantecosa",
     "descripcion": "Lechuga fresca de hoja grande.",
     "precio": 300,
-    "imagen": "../../imagenes/lechuga_mantecosa.jpg",
+    "imagen": "/images/lechuga_mantecosa.jpg",
     "tipoProducto": "HO"
   },
   {
@@ -36,7 +36,7 @@
     "nombre": "Zanahorias",
     "descripcion": "Zanahorias frescas y crujientes.",
     "precio": 400,
-    "imagen": "../../imagenes/zanahorias.jpg",
+    "imagen": "https://imgs.search.brave.com/o1nHS2BL8q-tu92OeaO2mIN4ZSyte004lxpWXwIUvq4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTAx/NTk5NTAyOC9lcy9m/b3RvL3phbmFob3Jp/YS1mcmVzY2EtcmFj/aW1vcy1lbi1tZXJj/YWRvLWFsLWFpcmUt/bGlicmUuanBnP3M9/NjEyeDYxMiZ3PTAm/az0yMCZjPUpjQ21U/dG5ETnlocUZmdGd4/SU9KdjEyUVp5UE91/UlAtQ0lEZlF0Ylc0/aU09",
     "tipoProducto": "RA"
   },
   {
@@ -44,7 +44,7 @@
     "nombre": "Repollos",
     "descripcion": "Repollos crujientes.",
     "precio": 750,
-    "imagen": "../../imagenes/repollo.jpg",
+    "imagen": "/images/repollo.jpg",
     "tipoProducto": "HO"
   },
   {
@@ -52,7 +52,7 @@
     "nombre": "Zapallo",
     "descripcion": "Zapallo de sabor dulce y textura suave.",
     "precio": 900,
-    "imagen": "../../imagenes/zapallo.jpg",
+    "imagen": "/images/zapallo.jpg",
     "tipoProducto": "HO"
   },
   {
@@ -60,7 +60,7 @@
     "nombre": "Cebollas Moradas",
     "descripcion": "Cebollas frescas y de sabor fuerte.",
     "precio": 550,
-    "imagen": "../../imagenes/cebollas_moradas.jpg",
+    "imagen": "/images/cebollas_moradas.jpg",
     "tipoProducto": "BU"
   },
   {
@@ -68,7 +68,7 @@
     "nombre": "Acelga",
     "descripcion": "Hojas verdes y tiernas.",
     "precio": 320,
-    "imagen": "../../imagenes/acelga.jpg",
+    "imagen": "/images/acelga.jpg",
     "tipoProducto": "HO"
   },
   {
@@ -76,7 +76,7 @@
     "nombre": "Espinaca",
     "descripcion": "Espinacas frescas y ricas en hierro.",
     "precio": 360,
-    "imagen": "../../imagenes/espinaca.jpg",
+    "imagen": "/images/espinaca.jpg",
     "tipoProducto": "HO"
   },
   {
@@ -84,7 +84,7 @@
     "nombre": "Pepinos",
     "descripcion": "Pepinos frescos y crujientes.",
     "precio": 410,
-    "imagen": "../../imagenes/pepinos.jpg",
+    "imagen": "/images/pepinos.jpg",
     "tipoProducto": "HO"
   },
   {
@@ -92,7 +92,7 @@
     "nombre": "Remolacha",
     "descripcion": "Remolachas de color intenso y sabor dulce.",
     "precio": 650,
-    "imagen": "../../imagenes/remolacha.jpg",
+    "imagen": "/images/remolacha.jpg",
     "tipoProducto": "RA"
   },
   {
@@ -100,7 +100,7 @@
     "nombre": "Calabaza",
     "descripcion": "Calabaza de excelente sabor.",
     "precio": 780,
-    "imagen": "../../imagenes/calabaza.jpg",
+    "imagen": "/images/calabaza.jpg",
     "tipoProducto": "HO"
   },
   {
@@ -108,7 +108,7 @@
     "nombre": "Rúcula",
     "descripcion": "Rúcula de sabor picante y fresco.",
     "precio": 390,
-    "imagen": "../../imagenes/rucula.jpg",
+    "imagen": "/images/rucula.jpg",
     "tipoProducto": "HO"
   },
   {
@@ -116,7 +116,7 @@
     "nombre": "Lechuga gallega",
     "descripcion": "Lechuga pero gallega.",
     "precio": 490,
-    "imagen": "../../imagenes/lechugaGallega.jpg",
+    "imagen": "/images/lechugaGallega.jpg",
     "tipoProducto": "HO"
   },
   {
@@ -124,7 +124,7 @@
     "nombre": "Zanahoria",
     "descripcion": "Zanahoria fresca de huerta",
     "precio": 250.5,
-    "imagen": "../../imagenes/zanahoria.jpg",
+    "imagen": "/images/zanahoria.jpg",
     "tipoProducto": "RA"
   },
   {
@@ -132,7 +132,7 @@
     "nombre": "Papas Andinas",
     "descripcion": "Papas andinas de sabor suave y textura cremosa.",
     "precio": 540,
-    "imagen": "../../imagenes/papas_andinas.jpg",
+    "imagen": "/images/papas_andinas.jpg",
     "tipoProducto": "TU"
   },
   {
@@ -140,7 +140,7 @@
     "nombre": "Bolson de Hortalizas",
     "descripcion": "Bolson con una selección de hortalizas frescas.",
     "precio": 1700,
-    "imagen": "../../imagenes/bolson_hortalizas.jpg",
+    "imagen": "/images/bolson_hortalizas.jpg",
     "tipoProducto": "BO"
   },
   {
@@ -148,7 +148,7 @@
     "nombre": "Frutillas Orgánicas",
     "descripcion": "Frutillas frescas cultivadas sin químicos.",
     "precio": 650,
-    "imagen": "../../imagenes/frutillas.jpg",
+    "imagen": "/images/frutillas.jpg",
     "tipoProducto": "FR"
   },
   {
@@ -156,7 +156,7 @@
     "nombre": "Brocoli",
     "descripcion": "Brocoli fresco y de color vibrante.",
     "precio": 600,
-    "imagen": "../../imagenes/brocoli.jpg",
+    "imagen": "/images/brocoli.jpg",
     "tipoProducto": "HO"
   },
   {
@@ -164,7 +164,7 @@
     "nombre": "Cilantro Fresco",
     "descripcion": "Hojas de cilantro fresco y fragante.",
     "precio": 150,
-    "imagen": "../../imagenes/cilantro.jpg",
+    "imagen": "/images/cilantro.jpg",
     "tipoProducto": "HE"
   }
 ]
