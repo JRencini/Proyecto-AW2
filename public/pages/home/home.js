@@ -4,6 +4,8 @@ import { cardComponent } from "../../components/card.js";
 const user = getSession('user');
 const txtNombre = document.getElementById('txtNombre');
 const btnLogout = document.getElementById('btnLogout')
+let selectedCategoryButton = null;
+
 txtNombre.textContent = `Hola ${user.name}`;
 
 const logout = (key) => {
@@ -20,17 +22,36 @@ const loadCategories = async () => {
 
     categories.forEach(category => {
       const option = document.createElement('button');
-      option.classList.add('dropdown-item');
+      option.classList.add('btn', 'btn-category', 'me-2');  // Usamos la clase btn-category para el estilo personalizado
       option.textContent = category.nombre;
-      option.dataset.codigo = category.codigo; 
-      option.addEventListener('click', () => filterByCategory(category.codigo, category.nombre));
+      option.dataset.codigo = category.codigo;
+
+      // Manejar la selección de categorías
+      option.addEventListener('click', () => {
+        if (selectedCategoryButton) {
+          selectedCategoryButton.classList.remove('selected');
+        }
+        option.classList.add('selected');  // Añadir la clase 'selected' al botón seleccionado
+        selectedCategoryButton = option;
+
+        filterByCategory(category.codigo, category.nombre);
+      });
+
       listCategories.appendChild(option);
     });
 
     const clearFilterOption = document.createElement('button');
-    clearFilterOption.classList.add('dropdown-item', 'text-danger');
+    clearFilterOption.classList.add('btn', 'btn-clear-filters', 'me-2');
     clearFilterOption.textContent = 'Quitar filtros';
-    clearFilterOption.addEventListener('click', () => loadProducts());
+
+    clearFilterOption.addEventListener('click', () => {
+      loadProducts(); 
+      if (selectedCategoryButton) {
+        selectedCategoryButton.classList.remove('selected'); 
+        selectedCategoryButton = null;
+      }
+    });
+
     listCategories.appendChild(clearFilterOption);
 
   } catch (error) {
@@ -57,13 +78,11 @@ const renderProducts = (products) => {
   const cardsContainer = document.getElementById('cardsContainer');
   cardsContainer.innerHTML = '';
 
-  products.forEach((product, index) => {
-    if (index % 5 === 0) {
-      const row = document.createElement('div');
-      row.classList.add('row', 'mb-4', 'flex', 'justify-between');
-      cardsContainer.appendChild(row);
-    }
+  const row = document.createElement('div');
+  row.classList.add('row', 'mb-4', 'flex', 'flex-wrap', 'justify-start', 'gap-4'); 
+  cardsContainer.appendChild(row);
 
+  products.forEach(product => {
     const card = cardComponent({
       id: product.id,
       nombre: product.nombre,
@@ -72,10 +91,10 @@ const renderProducts = (products) => {
       imagen: product.imagen
     });
 
-    const lastRow = cardsContainer.lastElementChild;
-    lastRow.appendChild(card);
+    row.appendChild(card); 
   });
 };
+
 
 const filterByCategory = async (categoryCode, categoryName) => {
   try {

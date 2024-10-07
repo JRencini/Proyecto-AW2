@@ -57,3 +57,20 @@
   cursor: pointer;
   color: #333;
 }
+
+
+/* Estilos para los botones de categorías */
+.btn-category {
+  background-color: #a3d977; /* Lima más oscuro */
+  color: white;
+}
+
+.btn-category.selected {
+  background-color: #54b00d; /* Más oscuro cuando está seleccionado */
+  color: white;
+}
+
+.btn-clear-filters {
+  background-color: transparent;
+  color: #6c757d; /* Texto en gris para el botón de quitar filtros */
+}

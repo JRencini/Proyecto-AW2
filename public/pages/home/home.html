@@ -12,23 +12,15 @@
   <header>
     <nav class="bg-lime-50 navbar navbar-expand-lg fixed-top">
       <div class="container-fluid">
-        <div class="relative flex h-16 items-center justify-end">
+        <div class="relative flex h-16 items-center justify-content-start">
           <a class="navbar-brand" href="../home/home.html">
-            <img src="../../images/ICONO.png" alt="HuertaDeChacra" class="me-3" width="35px">
+            <img src="../../images/ICONO.png" alt="HuertaDeChacra" class="me-3" width="70px">
           </a>
-          <div class="collapse navbar-collapse" id="navbarCollapse"></div>
-          <div class="dropdown">
-            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-              Categorías
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="width: 20rem;">
-              <ul class="list-group list-group-item-light rounded-2">
-                <div id="listCategories"></div>
-              </ul>
-            </ul>
+          <div class="d-flex justify-content-start mt-3">
+            <div id="listCategories" class="relative flex items-center "></div>
           </div>
         </div>
-        <div class="d-flex align-items-center">           
+        <div class="d-flex align-items-center justify-content-end">           
           <h1 id="txtNombre" class="navbar-brand me-3"></h1>
           <a class="navbar-brand" href="../cart/cart.html">
             <button id="btnCart" class="btn btn-success me-2">
