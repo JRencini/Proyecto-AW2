@@ -241,69 +241,6 @@
     "total": 0
   },
   {
-    "id": 1728328057598,
-    "fecha": "7/10/2024",
-    "cuerpo": [
-      {
-        "idProducto": 1,
-        "cantidad": "1",
-        "observaciones": "asklhasold jldjasljda "
-      },
-      {
-        "idProducto": 6,
-        "cantidad": "1",
-        "observaciones": ""
-      },
-      {
-        "idProducto": 7,
-        "cantidad": "2",
-        "observaciones": "skjdhaskd"
-      }
-    ],
-    "total": 3600
-  },
-  {
-    "id": 1728328163109,
-    "fecha": "7/10/2024",
-    "cuerpo": [
-      {
-        "idProducto": 0,
-        "cantidad": "3",
-        "observaciones": ""
-      },
-      {
-        "idProducto": 6,
-        "cantidad": "1",
-        "observaciones": ""
-      }
-    ],
-    "total": 2190
-  },
-  {
-    "id": 1728328214848,
-    "fecha": "7/10/2024",
-    "cuerpo": [
-      {
-        "idProducto": 1,
-        "cantidad": "3",
-        "observaciones": ""
-      }
-    ],
-    "total": 4800
-  },
-  {
-    "id": 1728328269263,
-    "fecha": "7/10/2024",
-    "cuerpo": [
-      {
-        "idProducto": 3,
-        "cantidad": "4",
-        "observaciones": ""
-      }
-    ],
-    "total": 1200
-  },
-  {
     "id": 1728329446280,
     "idCliente": 7,
     "fecha": "7/10/2024",
