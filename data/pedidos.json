@@ -252,5 +252,59 @@
       }
     ],
     "total": 1650
+  },
+  {
+    "id": 1729618032631,
+    "idCliente": 7,
+    "fecha": "22/10/2024",
+    "cuerpo": [
+      {
+        "idProducto": 0,
+        "cantidad": "1",
+        "observaciones": ""
+      },
+      {
+        "idProducto": 1,
+        "cantidad": "3",
+        "observaciones": ""
+      }
+    ],
+    "total": 5230
+  },
+  {
+    "id": 1729618057612,
+    "idCliente": 7,
+    "fecha": "22/10/2024",
+    "cuerpo": [
+      {
+        "idProducto": 0,
+        "cantidad": "1",
+        "observaciones": ""
+      },
+      {
+        "idProducto": 1,
+        "cantidad": "3",
+        "observaciones": ""
+      }
+    ],
+    "total": 5230
+  },
+  {
+    "id": 1729618629892,
+    "idCliente": 7,
+    "fecha": "22/10/2024",
+    "cuerpo": [
+      {
+        "idProducto": 0,
+        "cantidad": "1",
+        "observaciones": ""
+      },
+      {
+        "idProducto": 1,
+        "cantidad": "1",
+        "observaciones": ""
+      }
+    ],
+    "total": 2030
   }
 ]

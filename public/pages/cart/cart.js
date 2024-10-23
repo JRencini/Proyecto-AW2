@@ -1,5 +1,5 @@
 import { getSession } from "../../utils/sessionStorage.controller.js";
-
+import { crearPedido } from "../../api/pedidos.js";
 
 const user = getSession('user');
 const txtNombre = document.getElementById('txtNombre');
@@ -93,14 +93,7 @@ function finalizarCompra() {
     total: total 
   };
 
-  fetch('/pedidos/nuevoPedido', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(pedido)
-  })
-  .then(response => response.json())
+  crearPedido(pedido)
   .then(data => {
     console.log('Pedido enviado:', data);
     alert('Compra finalizada con éxito!');

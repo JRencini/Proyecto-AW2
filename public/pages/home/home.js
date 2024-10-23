@@ -1,5 +1,7 @@
 import { getSession } from "../../utils/sessionStorage.controller.js";
 import { cardComponent } from "../../components/card.js";
+import { fetchTiposProducto } from "../../api/tipoProducto.js";
+import { fetchProductos, fetchProductosPorCategoria } from "../../api/productos.js";
 
 const user = getSession('user');
 const txtNombre = document.getElementById('txtNombre');
@@ -14,24 +16,22 @@ const logout = (key) => {
 
 const loadCategories = async () => {
   try {
-    const response = await fetch('/tipoProducto/obtenerTiposProducto');
-    const categories = await response.json();
+    const categories = await fetchTiposProducto();
 
     const listCategories = document.getElementById('listCategories');
     listCategories.innerHTML = '';
 
     categories.forEach(category => {
       const option = document.createElement('button');
-      option.classList.add('btn', 'btn-category', 'me-2');  // Usamos la clase btn-category para el estilo personalizado
+      option.classList.add('btn', 'btn-category', 'me-2'); 
       option.textContent = category.nombre;
       option.dataset.codigo = category.codigo;
 
-      // Manejar la selección de categorías
       option.addEventListener('click', () => {
         if (selectedCategoryButton) {
           selectedCategoryButton.classList.remove('selected');
         }
-        option.classList.add('selected');  // Añadir la clase 'selected' al botón seleccionado
+        option.classList.add('selected');
         selectedCategoryButton = option;
 
         filterByCategory(category.codigo, category.nombre);
@@ -66,8 +66,7 @@ document.getElementById('btnLogout').addEventListener('click', () => {
 
 const loadProducts = async () => {
   try {
-    const response = await fetch('/productos/obtenerProductos');
-    const products = await response.json();
+    const products = await fetchProductos();  
     renderProducts(products);
   } catch (error) {
     console.error("Error al cargar los productos:", error);
@@ -98,16 +97,11 @@ const renderProducts = (products) => {
 
 const filterByCategory = async (categoryCode, categoryName) => {
   try {
-    const response = await fetch(`/productos/obtenerProductosPorCategoria/${categoryCode}`);
+    const filteredProducts = await fetchProductosPorCategoria(categoryCode);
     
-    if (response.ok) {
-      const filteredProducts = await response.json();
-      renderProducts(filteredProducts);
-      const dropdownButton = document.getElementById('dropdownMenuButton');
-      dropdownButton.textContent = `Categoría: ${categoryName}`;
-    } else {
-      console.error(`Error: ${response.statusText}`);
-    }
+    renderProducts(filteredProducts);
+    const dropdownButton = document.getElementById('dropdownMenuButton');
+    dropdownButton.textContent = `Categoría: ${categoryName}`;
   } catch (error) {
     console.error("Error al filtrar los productos:", error);
   }
