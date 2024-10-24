@@ -4,11 +4,12 @@ import { fetchTiposProducto } from "../../api/tipoProducto.js";
 import { fetchProductos, fetchProductosPorCategoria } from "../../api/productos.js";
 
 const user = getSession('user');
+const userData = user.clienteData
 const txtNombre = document.getElementById('txtNombre');
 const btnLogout = document.getElementById('btnLogout')
 let selectedCategoryButton = null;
 
-txtNombre.textContent = `Hola ${user.name}`;
+txtNombre.textContent = `Hola ${userData.nombre}`;
 
 const logout = (key) => {
   sessionStorage.removeItem(key)

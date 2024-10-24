@@ -68,23 +68,17 @@ router.put('/modificarTipoProducto', async (req, res) => {
 });
 
 router.post('/create', async (req, res) => {
-  const { nombre, descripcion, precio, imagen, tipoProductoCod } = req.body;
-
-  if (!nombre || !descripcion || !precio || !imagen || !tipoProductoCod) {
-    return res.status(400).json({ message: "Todos los campos del producto son obligatorios" });
+  const { codigo, nombre, descripcion } = req.body;
+  if (!codigo || !nombre || !descripcion) {
+    return res.status(400).json({ message: "Todos los campos son obligatorios" });
   }
 
   try {
-    const tipoProducto = await TipoProducto.findOne({ codigo: tipoProductoCod });
-    if (!tipoProducto) {
-      return res.status(404).json({ message: "Tipo de producto no encontrado" });
-    }
-
-    const result = await createProducto({ nombre, descripcion, precio, imagen, tipoProducto: tipoProductoCod });
+    const result = await createTipoProducto({ codigo, nombre, descripcion });
     res.status(201).json(result);
   } catch (error) {
     console.log(error);
-    res.status(500).json({ message: "Error al crear el producto" });
+    res.status(500).json({ message: "Error al crear el tipo producto" });
   }
 });
 

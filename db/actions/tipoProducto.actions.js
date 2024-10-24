@@ -7,7 +7,7 @@ export const createTipoProducto = async ({ codigo, nombre, descripcion }) => {
     const res = await TipoProducto.create({ codigo, nombre, descripcion });
     return JSON.parse(JSON.stringify(res));
   } catch (error) {
-    console.error('Error al crear el producto en MongoDB:', error);
+    console.error('Error al crear el tipo producto en MongoDB:', error);
     throw error;
   }
 };

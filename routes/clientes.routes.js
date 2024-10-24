@@ -2,12 +2,15 @@ import { Router } from "express";
 import { readFile, writeFile } from 'fs/promises' 
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
+import { createCliente, authenticateCliente } from "../db/actions/clientes.actions.js";
+import Cliente from "../db/schemas/clientes.schema.js";
+
 
 const fileClientes = await readFile('./data/clientes.json', "utf-8")
 const ClientesData = JSON.parse(fileClientes)
 const router = Router()
 
-const SECRET = "YyY81_2ECKZQfUO9nPVdWzVWFU359mLMNeIx2-gSvpZNj-NlfiEZ-fNxNmhMFTuH"
+const SECRET = process.env.SECRET
 
 router.get('/buscarPorID/:id', (req, res) => {
   const id = parseInt(req.params.id)
@@ -42,48 +45,59 @@ router.get('/obtenerNombre/:id', (req, res)=>{
     }
 })
 
-router.post('/login', (req, res) => {
-  const email = req.body.email
-  const pass = req.body.password
+router.post('/login', async (req, res) => {
+  const { email, password } = req.body;
 
-  const result = ClientesData.find(e => e.email === email)
-
-  if (!result) {
-    return res.status(404).send({ status: false });
+  if (!email || !password) {
+    return res.status(400).json({ message: "Email y contraseña son obligatorios" });
   }
 
-  const controlPass = bcrypt.compareSync(pass, result.pass)
+  try {
+    const { success, cliente, message } = await authenticateCliente(email, password);
 
-  if (!controlPass) {
-    return res.status(404).send({ status: false });
-  }
-
-  const token = jwt.sign({ ...result }, SECRET, { expiresIn: 5 })
-  
-  res.status(200).json(token)
-})
-
-router.post('/create',(req,res)=>{
-    const {nombre,telefono,email,password} = req.body
-    
-
-    try{
-        const hashedPass = bcrypt.hashSync(password, 8);
-
-        console.log(hashedPass)
-
-        const id =  ClientesData.length > 0 ? ClientesData[ClientesData.length-1].id + 1 : 1
-
-        ClientesData.push({id, nombre, telefono, email,  pass:hashedPass})
-
-        writeFile('./data/clientes.json', JSON.stringify(ClientesData,null,2))
-
-        res.status(200).json({status:true})
-
-    }catch(error){
-        console.log(error)
-        res.status(400).json({status:false})
+    if (!success) {
+      return res.status(404).json({ message });
     }
+    const token = jwt.sign({ id: cliente._id, email: cliente.email }, SECRET, { expiresIn: '5h' });
+    res.status(200).json({ token });
+  } catch (error) {
+    console.error('Error en el proceso de login:', error);
+    res.status(500).json({ message: "Error en el servidor" });
+  }
+});
+
+router.post('/create', async (req,res)=>{
+  const {nombre,telefono,email,pass} = req.body
+  if (!nombre || !telefono || !email || !pass) {
+    return res.status(400).json({ message: "Todos los campos del producto son obligatorios" });
+  }
+
+  try{
+    const hashedPass = bcrypt.hashSync(pass, 8);
+    const result = await createCliente({nombre, telefono, email,  password:hashedPass})
+    res.status(200).json(result)
+  }catch(error){
+    console.log(error);
+    res.status(500).json({ message: "Error al crear el cliente" });
+  }
 })
+
+router.get('/info', async (req, res) => {
+  const token = req.headers.authorization.split(' ')[1];
+
+  try {
+    const decoded = jwt.verify(token, SECRET);
+    const cliente = await Cliente.findById(decoded.id);
+
+    if (!cliente) {
+      return res.status(404).json({ message: "Cliente no encontrado" });
+    }
+
+    res.status(200).json({ nombre: cliente.nombre, email: cliente.email, telefono: cliente.telefono });
+  } catch (error) {
+    console.error('Error al obtener el cliente:', error);
+    res.status(500).json({ message: "Error en el servidor" });
+  }
+});
 
 export default router
