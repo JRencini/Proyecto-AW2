@@ -1,6 +1,5 @@
-import { buildNavBar } from "./public/components/navbar.js";
 import express from 'express'
-import { readFile, writeFile } from 'fs/promises' 
+import 'dotenv/config'
 
 import clientesRouter from './routes/clientes.routes.js'
 import pedidosRouter from './routes/pedidos.routes.js'
@@ -8,7 +7,7 @@ import productosRouter from './routes/productos.routes.js'
 import tipoProductoRouter from './routes/tipoProducto.routes.js'
 
 const app = express()
-const port = 5000
+const port = process.env.PORT
 
 app.use(express.static('public'));
 app.use(express.json());

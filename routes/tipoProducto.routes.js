@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { readFile, writeFile } from 'fs/promises';
+import { createTipoProducto } from "../db/actions/tipoProducto.actions.js";
 
 const fileTipoProducto = await readFile('./data/tipoProducto.json', "utf-8");
 const tipoProductoData = JSON.parse(fileTipoProducto);
@@ -63,6 +64,27 @@ router.put('/modificarTipoProducto', async (req, res) => {
     res.status(200).json({ message: "El tipo de producto fue modificado exitosamente" });
   } catch (error) {
     res.status(500).json({ message: "Error al actualizar el tipo de producto" });
+  }
+});
+
+router.post('/create', async (req, res) => {
+  const { nombre, descripcion, precio, imagen, tipoProductoCod } = req.body;
+
+  if (!nombre || !descripcion || !precio || !imagen || !tipoProductoCod) {
+    return res.status(400).json({ message: "Todos los campos del producto son obligatorios" });
+  }
+
+  try {
+    const tipoProducto = await TipoProducto.findOne({ codigo: tipoProductoCod });
+    if (!tipoProducto) {
+      return res.status(404).json({ message: "Tipo de producto no encontrado" });
+    }
+
+    const result = await createProducto({ nombre, descripcion, precio, imagen, tipoProducto: tipoProductoCod });
+    res.status(201).json(result);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Error al crear el producto" });
   }
 });
 

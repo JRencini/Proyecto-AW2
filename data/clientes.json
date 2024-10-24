@@ -68,5 +68,19 @@
     "telefono": "3412345676",
     "email": "ignacio.vazquez@email.com",
     "password": "Ignacio123!"
+  },
+  {
+    "id": 10,
+    "nombre": "Juani",
+    "telefono": 484748453,
+    "email": "juani@gamil.com",
+    "pass": "$2a$08$cYn6usLsOnAiuG8NhmHYsuyBqasBaOZHQwWa/.TAtRDYEvBmHsnaG"
+  },
+  {
+    "id": 11,
+    "nombre": "Juani",
+    "telefono": 484748453,
+    "email": "juani@gamil.com",
+    "pass": "$2a$08$Y5/o1ceDfnVJ5q7WoRw/..vGRaDQK1tXpqx8wWvdbImQnFVsVjPO."
   }
 ]

@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { readFile, writeFile } from 'fs/promises';
+import { createProducto } from "../db/actions/productos.actions.js";
 
 const fileProductos = await readFile('./data/productos.json', "utf-8");
 const productosData = JSON.parse(fileProductos);
@@ -87,5 +88,21 @@ router.put('/modificarProducto', async (req, res) => {
     res.status(500).json({ message: "Error al actualizar el producto" });
   }
 });
+
+router.post('/create', async (req, res) => {
+  const { nombre, descripcion, precio, imagen, tipoProductoCod } = req.body;
+
+  if (!nombre || !descripcion || !precio || !imagen || !tipoProductoCod) {
+    return res.status(400).json({ message: "Todos los campos del producto son obligatorios" });
+  }
+  
+  try {
+    const result = await createProducto({nombre, descripcion, precio, imagen, tipoProducto: tipoProductoCod })
+
+    res.status(200).json(result)
+  } catch (error) {
+    console.log(error)
+  }
+})
 
 export default router;
