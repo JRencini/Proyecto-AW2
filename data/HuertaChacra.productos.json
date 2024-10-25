@@ -1,0 +1,273 @@
+[{
+  "_id": {
+    "$oid": "671c09aa3cfc787114f35917"
+  },
+  "nombre": "Coliflor",
+  "descripcion": "Coliflor de gran tamaño y sabor suave.",
+  "precio": 430,
+  "imagen": "/images/coliflor.jpg",
+  "tipoProducto": {
+    "$oid": "671982d2d66999848bcf015e"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "671c09da3cfc787114f35919"
+  },
+  "nombre": "Bolson de Verduras",
+  "descripcion": "Bolson con variedad de verduras de temporada.",
+  "precio": 1600,
+  "imagen": "/images/bolson_verduras.jpg",
+  "tipoProducto": {
+    "$oid": "671ac48c063e1257e023f4fe"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "671c0a0c3cfc787114f3591b"
+  },
+  "nombre": "Tomates Orgánicos",
+  "descripcion": "Tomates cultivados sin químicos.",
+  "precio": 350,
+  "imagen": "/images/tomates_organicos.jpg",
+  "tipoProducto": {
+    "$oid": "671ac4b5063e1257e023f504"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "671c0a163cfc787114f3591d"
+  },
+  "nombre": "Lechuga Mantecosa",
+  "descripcion": "Lechuga fresca de hoja grande.",
+  "precio": 300,
+  "imagen": "/images/lechuga_mantecosa.jpg",
+  "tipoProducto": {
+    "$oid": "671982d2d66999848bcf015e"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "671c0a1f3cfc787114f3591f"
+  },
+  "nombre": "Zanahorias",
+  "descripcion": "Zanahorias frescas y crujientes.",
+  "precio": 400,
+  "imagen": "https://imgs.search.brave.com/o1nHS2BL8q-tu92OeaO2mIN4ZSyte004lxpWXwIUvq4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTAx/NTk5NTAyOC9lcy9m/b3RvL3phbmFob3Jp/YS1mcmVzY2EtcmFj/aW1vcy1lbi1tZXJj/YWRvLWFsLWFpcmUt/bGlicmUuanBnP3M9/NjEyeDYxMiZ3PTAm/az0yMCZjPUpjQ21U/dG5ETnlocUZmdGd4/SU9KdjEyUVp5UE91/UlAtQ0lEZlF0Ylc0/aU09",
+  "tipoProducto": {
+    "$oid": "671ac4bb063e1257e023f506"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "671c0a263cfc787114f35921"
+  },
+  "nombre": "Repollos",
+  "descripcion": "Repollos crujientes.",
+  "precio": 750,
+  "imagen": "/images/repollo.jpg",
+  "tipoProducto": {
+    "$oid": "671982d2d66999848bcf015e"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "671c0a2c3cfc787114f35923"
+  },
+  "nombre": "Zapallo",
+  "descripcion": "Zapallo de sabor dulce y textura suave.",
+  "precio": 900,
+  "imagen": "/images/zapallo.jpg",
+  "tipoProducto": {
+    "$oid": "671982d2d66999848bcf015e"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "671c0a313cfc787114f35925"
+  },
+  "nombre": "Cebollas Moradas",
+  "descripcion": "Cebollas frescas y de sabor fuerte.",
+  "precio": 550,
+  "imagen": "/images/cebollas_moradas.jpg",
+  "tipoProducto": {
+    "$oid": "671ac4c7063e1257e023f508"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "671c0a383cfc787114f35927"
+  },
+  "nombre": "Acelga",
+  "descripcion": "Hojas verdes y tiernas.",
+  "precio": 320,
+  "imagen": "/images/acelga.jpg",
+  "tipoProducto": {
+    "$oid": "671982d2d66999848bcf015e"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "671c0a3e3cfc787114f35929"
+  },
+  "nombre": "Espinaca",
+  "descripcion": "Espinacas frescas y ricas en hierro.",
+  "precio": 360,
+  "imagen": "/images/espinaca.jpg",
+  "tipoProducto": {
+    "$oid": "671982d2d66999848bcf015e"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "671c0a433cfc787114f3592b"
+  },
+  "nombre": "Pepinos",
+  "descripcion": "Pepinos frescos y crujientes.",
+  "precio": 410,
+  "imagen": "/images/pepinos.jpg",
+  "tipoProducto": {
+    "$oid": "671982d2d66999848bcf015e"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "671c0a473cfc787114f3592d"
+  },
+  "nombre": "Remolacha",
+  "descripcion": "Remolachas de color intenso y sabor dulce.",
+  "precio": 650,
+  "imagen": "/images/remolacha.jpg",
+  "tipoProducto": {
+    "$oid": "671ac4bb063e1257e023f506"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "671c0a4e3cfc787114f3592f"
+  },
+  "nombre": "Calabaza",
+  "descripcion": "Calabaza de excelente sabor.",
+  "precio": 780,
+  "imagen": "/images/calabaza.jpg",
+  "tipoProducto": {
+    "$oid": "671982d2d66999848bcf015e"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "671c0a563cfc787114f35931"
+  },
+  "nombre": "Rúcula",
+  "descripcion": "Rúcula de sabor picante y fresco.",
+  "precio": 390,
+  "imagen": "/images/rucula.jpg",
+  "tipoProducto": {
+    "$oid": "671982d2d66999848bcf015e"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "671c0a5c3cfc787114f35933"
+  },
+  "nombre": "Lechuga gallega",
+  "descripcion": "Lechuga pero gallega.",
+  "precio": 490,
+  "imagen": "/images/lechugaGallega.jpg",
+  "tipoProducto": {
+    "$oid": "671982d2d66999848bcf015e"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "671c0a613cfc787114f35935"
+  },
+  "nombre": "Zanahoria",
+  "descripcion": "Zanahoria fresca de huerta",
+  "precio": 250.5,
+  "imagen": "/images/zanahoria.jpg",
+  "tipoProducto": {
+    "$oid": "671ac4bb063e1257e023f506"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "671c0a663cfc787114f35937"
+  },
+  "nombre": "Papas Andinas",
+  "descripcion": "Papas andinas de sabor suave y textura cremosa.",
+  "precio": 540,
+  "imagen": "/images/papas_andinas.jpg",
+  "tipoProducto": {
+    "$oid": "671ac4d0063e1257e023f50a"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "671c0a6a3cfc787114f35939"
+  },
+  "nombre": "Bolson de Hortalizas",
+  "descripcion": "Bolson con una selección de hortalizas frescas.",
+  "precio": 1700,
+  "imagen": "/images/bolson_hortalizas.jpg",
+  "tipoProducto": {
+    "$oid": "671ac48c063e1257e023f4fe"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "671c0a703cfc787114f3593b"
+  },
+  "nombre": "Frutillas Orgánicas",
+  "descripcion": "Frutillas frescas cultivadas sin químicos.",
+  "precio": 650,
+  "imagen": "/images/frutillas.jpg",
+  "tipoProducto": {
+    "$oid": "671ac4b5063e1257e023f504"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "671c0a753cfc787114f3593d"
+  },
+  "nombre": "Brocoli",
+  "descripcion": "Brocoli fresco y de color vibrante.",
+  "precio": 600,
+  "imagen": "/images/brocoli.jpg",
+  "tipoProducto": {
+    "$oid": "671982d2d66999848bcf015e"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "671c0a7c3cfc787114f3593f"
+  },
+  "nombre": "Cilantro Fresco",
+  "descripcion": "Hojas de cilantro fresco y fragante.",
+  "precio": 150,
+  "imagen": "/images/cilantro.jpg",
+  "tipoProducto": {
+    "$oid": "671ac4d8063e1257e023f50c"
+  },
+  "__v": 0
+}]

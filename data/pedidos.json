@@ -1,21 +1,21 @@
 [
   {
     "id": 0,
-    "idCliente": 1,
+    "cliente": 1,
     "fecha": "11-09-2024",
     "cuerpo": [
       {
-        "idProducto": 2,
+        "producto": 2,
         "cantidad": 1,
         "observaciones": ""
       },
       {
-        "idProducto": 5,
+        "producto": 5,
         "cantidad": 1,
         "observaciones": ""
       },
       {
-        "idProducto": 8,
+        "producto": 8,
         "cantidad": 1,
         "observaciones": ""
       }
@@ -24,16 +24,16 @@
   },
   {
     "id": 1,
-    "idCliente": 0,
+    "cliente": 0,
     "fecha": "25/08/2024",
     "cuerpo": [
       {
-        "idProducto": 4,
+        "producto": 4,
         "cantidad": 1,
         "observaciones": ""
       },
       {
-        "idProducto": 7,
+        "producto": 7,
         "cantidad": 1,
         "observaciones": ""
       }
@@ -42,11 +42,11 @@
   },
   {
     "id": 2,
-    "idCliente": 3,
+    "cliente": 3,
     "fecha": "02/07/2024",
     "cuerpo": [
       {
-        "idProducto": 1,
+        "producto": 1,
         "cantidad": 1,
         "observaciones": ""
       }
@@ -55,16 +55,16 @@
   },
   {
     "id": 3,
-    "idCliente": 2,
+    "cliente": 2,
     "fecha": "19/06/2024",
     "cuerpo": [
       {
-        "idProducto": 0,
+        "producto": 0,
         "cantidad": 1,
         "observaciones": ""
       },
       {
-        "idProducto": 11,
+        "producto": 11,
         "cantidad": 1,
         "observaciones": ""
       }
@@ -73,26 +73,26 @@
   },
   {
     "id": 4,
-    "idCliente": 5,
+    "cliente": 5,
     "fecha": "11/05/2024",
     "cuerpo": [
       {
-        "idProducto": 13,
+        "producto": 13,
         "cantidad": 1,
         "observaciones": ""
       },
       {
-        "idProducto": 6,
+        "producto": 6,
         "cantidad": 1,
         "observaciones": ""
       },
       {
-        "idProducto": 9,
+        "producto": 9,
         "cantidad": 1,
         "observaciones": ""
       },
       {
-        "idProducto": 3,
+        "producto": 3,
         "cantidad": 1,
         "observaciones": ""
       }
@@ -101,11 +101,11 @@
   },
   {
     "id": 5,
-    "idCliente": 7,
+    "cliente": 7,
     "fecha": "28/07/2024",
     "cuerpo": [
       {
-        "idProducto": 2,
+        "producto": 2,
         "cantidad": 1,
         "observaciones": ""
       }
@@ -114,16 +114,16 @@
   },
   {
     "id": 6,
-    "idCliente": 6,
+    "cliente": 6,
     "fecha": "14/09/2024",
     "cuerpo": [
       {
-        "idProducto": 14,
+        "producto": 14,
         "cantidad": 1,
         "observaciones": ""
       },
       {
-        "idProducto": 10,
+        "producto": 10,
         "cantidad": 1,
         "observaciones": ""
       }
@@ -132,21 +132,21 @@
   },
   {
     "id": 7,
-    "idCliente": 4,
+    "cliente": 4,
     "fecha": "03/06/2024",
     "cuerpo": [
       {
-        "idProducto": 3,
+        "producto": 3,
         "cantidad": 1,
         "observaciones": ""
       },
       {
-        "idProducto": 1,
+        "producto": 1,
         "cantidad": 1,
         "observaciones": ""
       },
       {
-        "idProducto": 12,
+        "producto": 12,
         "cantidad": 1,
         "observaciones": ""
       }
@@ -155,11 +155,11 @@
   },
   {
     "id": 8,
-    "idCliente": 9,
+    "cliente": 9,
     "fecha": "17/07/2024",
     "cuerpo": [
       {
-        "idProducto": 4,
+        "producto": 4,
         "cantidad": 1,
         "observaciones": ""
       }
@@ -168,16 +168,16 @@
   },
   {
     "id": 9,
-    "idCliente": 8,
+    "cliente": 8,
     "fecha": "29/08/2024",
     "cuerpo": [
       {
-        "idProducto": 7,
+        "producto": 7,
         "cantidad": 1,
         "observaciones": ""
       },
       {
-        "idProducto": 6,
+        "producto": 6,
         "cantidad": 1,
         "observaciones": ""
       }
@@ -186,31 +186,31 @@
   },
   {
     "id": 10,
-    "idCliente": 1,
+    "cliente": 1,
     "fecha": "05/09/2024",
     "cuerpo": [
       {
-        "idProducto": 0,
+        "producto": 0,
         "cantidad": 1,
         "observaciones": ""
       },
       {
-        "idProducto": 5,
+        "producto": 5,
         "cantidad": 1,
         "observaciones": ""
       },
       {
-        "idProducto": 9,
+        "producto": 9,
         "cantidad": 1,
         "observaciones": ""
       },
       {
-        "idProducto": 13,
+        "producto": 13,
         "cantidad": 1,
         "observaciones": ""
       },
       {
-        "idProducto": 2,
+        "producto": 2,
         "cantidad": 1,
         "observaciones": ""
       }
@@ -219,21 +219,21 @@
   },
   {
     "id": 11,
-    "idCliente": 3,
+    "cliente": 3,
     "fecha": "11/04/2024",
     "cuerpo": [
       {
-        "idProducto": 8,
+        "producto": 8,
         "cantidad": 1,
         "observaciones": ""
       },
       {
-        "idProducto": 11,
+        "producto": 11,
         "cantidad": 1,
         "observaciones": ""
       },
       {
-        "idProducto": 14,
+        "producto": 14,
         "cantidad": 1,
         "observaciones": ""
       }
@@ -241,12 +241,11 @@
     "total": 0
   },
   {
-    "id": 1728329446280,
-    "idCliente": 7,
+    "cliente": 7,
     "fecha": "7/10/2024",
     "cuerpo": [
       {
-        "idProducto": 7,
+        "producto": 7,
         "cantidad": "3",
         "observaciones": "Cortadas juliana dea"
       }
@@ -254,17 +253,16 @@
     "total": 1650
   },
   {
-    "id": 1729618032631,
-    "idCliente": 7,
+    "cliente": 7,
     "fecha": "22/10/2024",
     "cuerpo": [
       {
-        "idProducto": 0,
+        "producto": 0,
         "cantidad": "1",
         "observaciones": ""
       },
       {
-        "idProducto": 1,
+        "producto": 1,
         "cantidad": "3",
         "observaciones": ""
       }
@@ -273,16 +271,16 @@
   },
   {
     "id": 1729618057612,
-    "idCliente": 7,
+    "cliente": 7,
     "fecha": "22/10/2024",
     "cuerpo": [
       {
-        "idProducto": 0,
+        "producto": 0,
         "cantidad": "1",
         "observaciones": ""
       },
       {
-        "idProducto": 1,
+        "producto": 1,
         "cantidad": "3",
         "observaciones": ""
       }
@@ -291,16 +289,16 @@
   },
   {
     "id": 1729618629892,
-    "idCliente": 7,
+    "cliente": 7,
     "fecha": "22/10/2024",
     "cuerpo": [
       {
-        "idProducto": 0,
+        "producto": 0,
         "cantidad": "1",
         "observaciones": ""
       },
       {
-        "idProducto": 1,
+        "producto": 1,
         "cantidad": "1",
         "observaciones": ""
       }

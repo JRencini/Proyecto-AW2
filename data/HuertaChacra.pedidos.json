@@ -1,0 +1,54 @@
+[
+  {
+    "_id": { "$oid": "64b2c03e7640c2e5d87e8c1a" },
+    "cliente": { "$oid": "64b2c03e7640c2e5d87e8c1b" },
+    "fecha": { "$date": "2024-09-11T00:00:00Z" },
+    "cuerpo": [
+      { "producto": { "$oid": "64b2c03e7640c2e5d87e8c1c" }, "cantidad": 1, "observaciones": "" },
+      { "producto": { "$oid": "64b2c03e7640c2e5d87e8c1d" }, "cantidad": 1, "observaciones": "" },
+      { "producto": { "$oid": "64b2c03e7640c2e5d87e8c1e" }, "cantidad": 1, "observaciones": "" }
+    ],
+    "total": 0
+  },
+  {
+    "_id": { "$oid": "64b2c03e7640c2e5d87e8c1f" },
+    "cliente": { "$oid": "64b2c03e7640c2e5d87e8c20" },
+    "fecha": { "$date": "2024-08-25T00:00:00Z" },
+    "cuerpo": [
+      { "producto": { "$oid": "64b2c03e7640c2e5d87e8c21" }, "cantidad": 1, "observaciones": "" },
+      { "producto": { "$oid": "64b2c03e7640c2e5d87e8c22" }, "cantidad": 1, "observaciones": "" }
+    ],
+    "total": 0
+  },
+  {
+    "_id": { "$oid": "64b2c03e7640c2e5d87e8c23" },
+    "cliente": { "$oid": "64b2c03e7640c2e5d87e8c24" },
+    "fecha": { "$date": "2024-07-02T00:00:00Z" },
+    "cuerpo": [
+      { "producto": { "$oid": "64b2c03e7640c2e5d87e8c25" }, "cantidad": 1, "observaciones": "" }
+    ],
+    "total": 0
+  },
+  {
+    "_id": { "$oid": "64b2c03e7640c2e5d87e8c26" },
+    "cliente": { "$oid": "64b2c03e7640c2e5d87e8c27" },
+    "fecha": { "$date": "2024-06-19T00:00:00Z" },
+    "cuerpo": [
+      { "producto": { "$oid": "64b2c03e7640c2e5d87e8c28" }, "cantidad": 1, "observaciones": "" },
+      { "producto": { "$oid": "64b2c03e7640c2e5d87e8c29" }, "cantidad": 1, "observaciones": "" }
+    ],
+    "total": 0
+  },
+  {
+    "_id": { "$oid": "64b2c03e7640c2e5d87e8c2a" },
+    "cliente": { "$oid": "64b2c03e7640c2e5d87e8c2b" },
+    "fecha": { "$date": "2024-05-11T00:00:00Z" },
+    "cuerpo": [
+      { "producto": { "$oid": "64b2c03e7640c2e5d87e8c2c" }, "cantidad": 1, "observaciones": "" },
+      { "producto": { "$oid": "64b2c03e7640c2e5d87e8c2d" }, "cantidad": 1, "observaciones": "" },
+      { "producto": { "$oid": "64b2c03e7640c2e5d87e8c2e" }, "cantidad": 1, "observaciones": "" },
+      { "producto": { "$oid": "64b2c03e7640c2e5d87e8c2f" }, "cantidad": 1, "observaciones": "" }
+    ],
+    "total": 0
+  }
+]
