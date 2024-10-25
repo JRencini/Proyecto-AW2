@@ -1,9 +1,11 @@
 import { getSession } from "../../utils/sessionStorage.controller.js";
 import { crearPedido } from "../../api/pedidos.js";
+import { fetchObtenerClienteXEmail } from "../../api/clientes.js";
 
 const user = getSession('user');
+const userData = user.clienteData
 const txtNombre = document.getElementById('txtNombre');
-txtNombre.textContent = `Hola ${user.name}`;
+txtNombre.textContent = `Hola ${userData.nombre}`;
 
 const totalCarrito = document.getElementById('totalCarrito');
 let total = 0;
@@ -28,7 +30,7 @@ function agregarEventosQuitar() {
 
   botonesQuitar.forEach(boton => {
     boton.addEventListener('click', (e) => {
-      const idProducto = parseInt(e.target.dataset.idProducto);
+      const idProducto = e.target.dataset.idProducto;
       eliminarDelCarrito(idProducto);
     });
   });
@@ -71,43 +73,49 @@ function renderCart() {
   agregarEventosQuitar();
 }
 
-function finalizarCompra() {
+async function finalizarCompra() {
   const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
   if (carrito.length === 0) {
     alert('El carrito está vacío');
     return;
   }
 
-  const user = getSession('user');
-  const idCliente = user.id; 
+  try {
+    const cliente = await fetchObtenerClienteXEmail(userData.email);
+    if (!cliente || !cliente._id) {
+      alert('No se pudo encontrar el cliente.');
+      return;
+    }
 
-  const pedido = {
-    id: Date.now(), 
-    idCliente: idCliente,
-    fecha: new Date().toLocaleDateString('es-AR'),
-    cuerpo: carrito.map(producto => ({
-      idProducto: producto.id,
-      cantidad: producto.cantidad,
-      observaciones: producto.observaciones || ''
-    })),
-    total: total 
-  };
+    const pedido = {
+      cliente: cliente._id.toString(),
+      fecha: new Date(),
+      cuerpo: carrito.map(producto => ({
+        producto: producto.id.toString(),
+        cantidad: producto.cantidad,
+        observaciones: producto.observaciones || ''
+      })),
+      total: total,
+    };
 
-  crearPedido(pedido)
-  .then(data => {
+    console.log('Pedido:', pedido);
+
+    const data = await crearPedido(pedido);
     console.log('Pedido enviado:', data);
     alert('Compra finalizada con éxito!');
-    
+
     localStorage.removeItem('carrito');
     total = 0;
     totalCarrito.textContent = "";
-    renderCart(); 
-  })
-  .catch(error => {
+    renderCart();
+
+  } catch (error) {
     console.error('Error al finalizar la compra:', error);
     alert('Ocurrió un error al finalizar la compra.');
-  });
+  }
 }
+
+
 
 document.getElementById('btnCompra').addEventListener('click', finalizarCompra);
 

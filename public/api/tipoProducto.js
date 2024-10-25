@@ -1,4 +1,4 @@
 export const fetchTiposProducto = async () => {
-  const response = await fetch('/tipoProducto/obtenerTiposProducto');
+  const response = await fetch('/tipoProducto/tipoProductos');
   return response.json();
 };

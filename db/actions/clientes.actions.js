@@ -31,3 +31,17 @@ export const authenticateCliente = async (email, password) => {
     return { success: false, message: "Error en el servidor" };
   }
 };
+
+export const obtenerCliente = async (email) => {
+  try {
+    await connectToDatabase();
+    const cliente = await Cliente.findOne({ email })
+    if (!cliente) {
+      return { success: false, message: "Cliente no encontrado" };     
+    }
+    return  JSON.parse(JSON.stringify(cliente))
+  } catch (error) {
+    console.error('Error al buscar el cliente:', error);
+    return { success: false, message: "Error en el servidor" };   
+  }
+}

@@ -4,8 +4,8 @@ const { Schema, models, model, ObjectId} = mongoose;
 
 const TipoProductoSchema  = new Schema({
   codigo: { type: String, required: true, unique: true},
-  nombre: { type: String, required: true, unique: true},
-  descripcion: { type: String, required: true },
+  nombre: { type: String, required: true},
+  descripcion: { type: String},
 
 })
 

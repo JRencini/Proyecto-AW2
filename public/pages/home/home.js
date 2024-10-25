@@ -21,12 +21,11 @@ const loadCategories = async () => {
 
     const listCategories = document.getElementById('listCategories');
     listCategories.innerHTML = '';
-
     categories.forEach(category => {
       const option = document.createElement('button');
       option.classList.add('btn', 'btn-category', 'me-2'); 
       option.textContent = category.nombre;
-      option.dataset.codigo = category.codigo;
+      option.dataset.codigo = category._id;
 
       option.addEventListener('click', () => {
         if (selectedCategoryButton) {
@@ -35,7 +34,7 @@ const loadCategories = async () => {
         option.classList.add('selected');
         selectedCategoryButton = option;
 
-        filterByCategory(category.codigo, category.nombre);
+        filterByCategory(category._id, category.nombre);
       });
 
       listCategories.appendChild(option);
@@ -74,7 +73,7 @@ const loadProducts = async () => {
   }
 };
 
-const renderProducts = (products) => {
+const renderProducts = (productos) => {
   const cardsContainer = document.getElementById('cardsContainer');
   cardsContainer.innerHTML = '';
 
@@ -82,15 +81,14 @@ const renderProducts = (products) => {
   row.classList.add('row', 'mb-4', 'flex', 'flex-wrap', 'justify-start', 'gap-4'); 
   cardsContainer.appendChild(row);
 
-  products.forEach(product => {
+  productos.forEach(product => {
     const card = cardComponent({
-      id: product.id,
+      id: String(product._id),
       nombre: product.nombre,
       descripcion: product.descripcion,
       precio: product.precio,
       imagen: product.imagen
     });
-
     row.appendChild(card); 
   });
 };
@@ -101,8 +99,6 @@ const filterByCategory = async (categoryCode, categoryName) => {
     const filteredProducts = await fetchProductosPorCategoria(categoryCode);
     
     renderProducts(filteredProducts);
-    const dropdownButton = document.getElementById('dropdownMenuButton');
-    dropdownButton.textContent = `Categoría: ${categoryName}`;
   } catch (error) {
     console.error("Error al filtrar los productos:", error);
   }

@@ -41,17 +41,14 @@ btnLogin.addEventListener('click', async () => {
 
   if (email !== '' && pass !== '') {
     try {
-      console.log('eskere')
       const token = await auth({ email, pass }); 
       const clienteData = await getClienteData(token);
       
-      console.log('eskere')
       addSession({
         token,
         clienteData 
       });
 
-      console.log('eskere')
       window.location.href = "../home/home.html";
     } catch (error) {
       console.error(error);

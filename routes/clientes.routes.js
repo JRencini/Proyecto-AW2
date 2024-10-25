@@ -1,13 +1,9 @@
 import { Router } from "express";
-import { readFile, writeFile } from 'fs/promises' 
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
-import { createCliente, authenticateCliente } from "../db/actions/clientes.actions.js";
+import { createCliente, authenticateCliente, obtenerCliente } from "../db/actions/clientes.actions.js";
 import Cliente from "../db/schemas/clientes.schema.js";
 
-
-const fileClientes = await readFile('./data/clientes.json', "utf-8")
-const ClientesData = JSON.parse(fileClientes)
 const router = Router()
 
 const SECRET = process.env.SECRET
@@ -23,14 +19,13 @@ router.get('/buscarPorID/:id', (req, res) => {
     }
 })
 
-router.get('/buscarPorNombre/:nombre', (req, res)=>{
-  const nombre = req.params.nombre
-  const result = ClientesData.find(e => e.nombre === nombre)
-
-  if(result){
-      res.status(200).json(result)
-  }else{
-      res.status(400).json(`No se encontro el cliente con el nombre: ${nombre}`)
+router.get('/buscarPorEmail/:email', async (req, res)=>{
+  const email = req.params.email
+  try {    
+    const result = await obtenerCliente(email)
+    res.status(200).json(result)
+  } catch (error) {
+    res.status(400).json(`No se encontro el cliente con el email: ${email}`)   
   }
 })
 
@@ -66,7 +61,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
-router.post('/create', async (req,res)=>{
+router.post('/nuevoCliente', async (req,res)=>{
   const {nombre,telefono,email,pass} = req.body
   if (!nombre || !telefono || !email || !pass) {
     return res.status(400).json({ message: "Todos los campos del producto son obligatorios" });

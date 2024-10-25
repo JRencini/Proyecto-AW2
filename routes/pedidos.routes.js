@@ -1,72 +1,60 @@
+
 import { Router } from "express";
-import { readFile, writeFile } from 'fs/promises' 
+import { createPedido, findAllPedidos, findPedidoById, updatePedido, deletePedido } from "../db/actions/pedidos.actions.js";
 
-const filePedidos = await readFile('./data/pedidos.json', "utf-8")
-const pedidosData = JSON.parse(filePedidos)
-
-const router = Router()
-
-const convertirFecha = (fechaStr) => {
-  const [dia, mes, año] = fechaStr.split('/');
-  return new Date(`${año}-${mes}-${dia}`); 
-};
-
-router.post('/pedidosDesdeHasta', async (req, res) => {
-  const { desde, hasta } = req.body;
-
-  if (!desde || !hasta) {
-      return res.status(400).json({ message: "Debes proporcionar las fechas 'desde' y 'hasta'" });
-  }
-  try {
-    const fechaDesde = convertirFecha(desde);
-    const fechaHasta = convertirFecha(hasta);
-
-    if (isNaN(fechaDesde.getTime()) || isNaN(fechaHasta.getTime())) {
-      return res.status(400).json({ message: "Fechas no válidas" });
-    }
-
-    const pedidosFiltrados = pedidosData.filter(pedido => {
-      const fechaPedido = convertirFecha(pedido.fecha); 
-      return fechaPedido >= fechaDesde && fechaPedido <= fechaHasta;
-    });
-
-    if (pedidosFiltrados.length > 0) {
-      res.status(200).json(pedidosFiltrados);
-    } else {
-      res.status(404).json({ message: `No hay pedidos entre ${desde} y ${hasta}` });
-    }
-    } catch (error) {
-      res.status(500).json({ message: "Error al buscar los pedidos", error });
-    }
-});
-
-router.delete('/eliminarPedido/:id', (req, res) => {
-  const { id } = req.params;
-  try {
-    const index = pedidosData.findIndex(pedido => pedido.id === parseInt(id));
-
-    if (index !== -1) {
-      pedidosData.splice(index, 1)
-      writeFile('./data/pedidos.json', JSON.stringify(pedidosData, null, 2))
-      res.status(200).json('Pedido eliminado exitosamente')
-    } else {
-      res.status(404).json('No se encontro un producto con el ID ingresado')
-    }
-  } catch (error) {
-    res.status(500).json({ message: "Error al eliminar el pedido" });
-  }
-});
+const router = Router();
 
 router.post('/nuevoPedido', async (req, res) => {
-  const nuevoPedido = req.body;
-  pedidosData.push(nuevoPedido);
-
+  const { cliente, fecha, cuerpo, total } = req.body;
   try {
-    await writeFile('./data/pedidos.json', JSON.stringify(pedidosData, null, 2));
-    res.status(201).json({ message: 'Pedido creado exitosamente', pedido: nuevoPedido });
+    const nuevoPedido = await createPedido({ cliente, fecha, cuerpo, total });
+    res.status(201).json(nuevoPedido);
   } catch (error) {
-    res.status(500).json({ message: 'Error al guardar el pedido', error });
+    res.status(500).json({ message: "Error al crear el pedido" });
   }
 });
 
-export default router
+router.get('/pedidos', async (req, res) => {
+  try {
+    const pedidos = await findAllPedidos();
+    res.status(200).json(pedidos);
+  } catch (error) {
+    res.status(500).json({ message: "Error al obtener los pedidos" });
+  }
+});
+
+router.get('/pedido/:id', async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const pedido = await findPedidoById(id);
+    res.status(200).json(pedido);
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+});
+
+router.put('/actualizarPedido/:id', async (req, res) => {
+  const { id } = req.params;
+  const { idCliente, fecha, cuerpo, total } = req.body;
+
+  try {
+    const pedidoActualizado = await updatePedido(id, { idCliente, fecha, cuerpo, total });
+    res.status(200).json(pedidoActualizado);
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+});
+
+router.delete('/eliminarPedido/:id', async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    await deletePedido(id);
+    res.status(200).json({ message: "Pedido eliminado con éxito" });
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+});
+
+export default router;

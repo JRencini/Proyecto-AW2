@@ -8,3 +8,4 @@ export const crearPedido = async (pedido) => {
   });
   return response.json();
 };
+

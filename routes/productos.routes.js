@@ -1,70 +1,37 @@
 import { Router } from "express";
-import { readFile, writeFile } from 'fs/promises';
-import { createProducto } from "../db/actions/productos.actions.js";
+import { createProducto, findById, findAll, findByTipo } from "../db/actions/productos.actions.js";
 
-const fileProductos = await readFile('./data/productos.json', "utf-8");
-const productosData = JSON.parse(fileProductos);
-
-const fileTipoProducto = await readFile('./data/tipoProducto.json', "utf-8");
-const tipoProductoData = JSON.parse(fileTipoProducto);
 
 const router = Router();
 
-const obtenerNombreCategoria = (codigo) => {
-  const categoria = tipoProductoData.find(cat => cat.codigo === codigo);
-  return categoria ? categoria.nombre : "Categoría no encontrada";
-};
+router.get('/productos', async(req, res) => {
+    try{
+        const result = await findAll()
+        res.status(200).json(result)
+    }catch(error){
+        res.status(400).json()
+    }
+})
 
-router.get('/obtenerProductos', (req, res) => {
-  const productosConCategoria = productosData.map(producto => ({
-    ...producto,
-    tipoProducto: obtenerNombreCategoria(producto.tipoProducto)
-  }));
-  res.status(200).json(productosConCategoria);
-});
-
-router.get('/obtenerProductosPorCategoria/:codigo', (req, res) => {
-  const { codigo } = req.params;
-  const productosPorCategoria = productosData.filter(producto => producto.tipoProducto === codigo)
-    .map(producto => ({
-      ...producto,
-      tipoProducto: obtenerNombreCategoria(producto.tipoProducto)
-    }));
-  
-  if (productosPorCategoria.length > 0) {
-    res.status(200).json(productosPorCategoria);
-  } else {
-    res.status(404).json({ message: "No se encontraron productos para la categoría indicada" });
-  }
-});
-
-router.post('/nuevoProducto', async (req, res) => {
-  const { nombre, descripcion, precio, imagen, tipoProducto } = req.body;
-
-  if (!nombre || !descripcion || !precio || !imagen || !tipoProducto) {
-    return res.status(400).json({ message: "Todos los campos del producto son obligatorios" });
-  }
-
-  const maxId = productosData.reduce((max, producto) => (producto.id > max ? producto.id : max), 0);
-  const nuevoId = maxId + 1;
-
-  const nuevoProducto = {
-    id: nuevoId,
-    nombre,
-    descripcion,
-    precio: parseFloat(precio),
-    imagen,
-    tipoProducto
-  };
-
+router.get('/productosPorID/:id', async(req, res) => {
+  const id = req.params.id  
   try {
-    productosData.push(nuevoProducto);
-    await writeFile('./data/productos.json', JSON.stringify(productosData, null, 2), 'utf-8');
-    res.status(201).json(nuevoProducto);
-  } catch (error) {
-    res.status(500).json({ message: "Error al registrar el producto nuevo" });
+      const result = await findById(id)
+      res.status(200).json(result)
+  }catch(error){
+      res.status(400).json()
   }
-});
+})
+
+router.get('/productosPorTipo/:id',async (req, res) => {
+    const tipoProduco = req.params.id    
+    try{
+        const result = await findByTipo(tipoProduco)
+        res.status(200).json(result)
+    }catch(error){
+        res.status(404).json({ message: "No se encontraron productos para la categoría indicada" });
+    }
+})
 
 router.put('/modificarProducto', async (req, res) => {
   const { id, new_nombre, new_descripcion, new_precio, new_imagen, new_tipoProducto } = req.body;
@@ -89,15 +56,15 @@ router.put('/modificarProducto', async (req, res) => {
   }
 });
 
-router.post('/create', async (req, res) => {
-  const { nombre, descripcion, precio, imagen, tipoProductoCod } = req.body;
+router.post('/nuevoProducto', async (req, res) => {
+  const { nombre, descripcion, precio, imagen, tipoProducto } = req.body;
 
-  if (!nombre || !descripcion || !precio || !imagen || !tipoProductoCod) {
+  if (!nombre || !descripcion || !precio || !imagen || !tipoProducto) {
     return res.status(400).json({ message: "Todos los campos del producto son obligatorios" });
   }
   
   try {
-    const result = await createProducto({nombre, descripcion, precio, imagen, tipoProducto: tipoProductoCod })
+    const result = await createProducto({nombre, descripcion, precio, imagen, tipoProducto })
 
     res.status(200).json(result)
   } catch (error) {
