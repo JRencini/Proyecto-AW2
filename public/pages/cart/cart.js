@@ -3,7 +3,7 @@ import { crearPedido } from "../../api/pedidos.js";
 import { fetchObtenerClienteXEmail } from "../../api/clientes.js";
 
 const user = getSession('user');
-const userData = user.clienteData
+const userData = user.clienteData;
 const txtNombre = document.getElementById('txtNombre');
 txtNombre.textContent = `Hola ${userData.nombre}`;
 
@@ -11,17 +11,17 @@ const totalCarrito = document.getElementById('totalCarrito');
 let total = 0;
 
 const logout = (key) => {
-  sessionStorage.removeItem(key)
-}
+  sessionStorage.removeItem(key);
+};
 document.getElementById('btnLogout').addEventListener('click', () => {
-      logout('user');
-      window.location.href = '../login/login.html';
-    });
+  logout('user');
+  window.location.href = '../login/login.html';
+});
 
 function eliminarDelCarrito(idProducto) {
   let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
   carrito = carrito.filter(producto => producto.id !== idProducto);
-  localStorage.setItem('carrito', JSON.stringify(carrito))
+  localStorage.setItem('carrito', JSON.stringify(carrito));
   renderCart();
 }
 
@@ -44,6 +44,7 @@ function renderCart() {
 
   if (carrito.length === 0) {
     cartContainer.innerHTML = '<p>No hay productos en el carrito</p>';
+    totalCarrito.textContent = total.toLocaleString('es-AR', { style: 'currency', currency: 'ARS' });
     return;
   }
 
@@ -98,10 +99,7 @@ async function finalizarCompra() {
       total: total,
     };
 
-    console.log('Pedido:', pedido);
-
     const data = await crearPedido(pedido);
-    console.log('Pedido enviado:', data);
     alert('Compra finalizada con éxito!');
 
     localStorage.removeItem('carrito');
@@ -114,8 +112,6 @@ async function finalizarCompra() {
     alert('Ocurrió un error al finalizar la compra.');
   }
 }
-
-
 
 document.getElementById('btnCompra').addEventListener('click', finalizarCompra);
 
