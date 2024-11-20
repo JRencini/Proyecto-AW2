@@ -18,16 +18,3 @@ const PedidosSchema = new Schema({
 const Pedido = models.pedido || model('pedido', PedidosSchema);
 
 export default Pedido
-
-/*
-{
-  "cliente": "671a8e50e7c2861cdc647b1d",
-  "fecha": "2024-10-25T20:21:30.958Z",
-  "cuerpo": [
-          {
-            "producto": "671bb7fb903dd7169fad2838",
-            "cantidad": "1",
-            "observaciones": ""
-          }],
-  "total": 1600
-}*/

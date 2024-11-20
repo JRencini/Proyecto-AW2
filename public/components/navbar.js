@@ -1,8 +1,5 @@
 import { notificacionConst } from "./notificaciones.js";
 
-//const userData = sessionStorage.getItem('userData');
-//const user = JSON.parse(userData);
-
 let idUsuario = '';
 let fullName = '';
 let hayUsuario = '';
@@ -10,34 +7,7 @@ let noHayUsuario = '';
 let noHayNotificaciones = '';
 let notificacionHTML = '';
 
-/*async function getNotifications() {
-  if (user) {
-    idUsuario = user.id;
-    fullName = `${user.nombre} ${user.apellido}`;
-    hayUsuario = 'href="../usuario/miUsuario.html"';
-    
-    try {
-      const res = await fetch('../../data/notificaciones.json');
-      const data = await res.json();
-      const dataFiltrada = data
-        .filter(e => e.idUsuario == idUsuario)
-        .sort((a, b) => new Date(b.fecha) - new Date(a.fecha))
-        .slice(0, 3);
-      notificacionHTML = dataFiltrada.map(i => notificacionConst(i.id, i.fecha, i.desc)).join('');
-      if (notificacionHTML != '') {
-        noHayNotificaciones = 'd-none'
-      }
-    } catch (error) {
-      console.error('Error al cargar el JSON:', error);
-    }
-  } else {
-    noHayUsuario = 'd-none';
-  }
-}*/
-
 async function buildNavBar() {
-  //await getNotifications();
-  
   const navElements = [
     { title: 'Accesorios', link: '../categorias/catAccesorios.html' },
     { title: 'Hardware', link: '../categorias/catHardware.html' },

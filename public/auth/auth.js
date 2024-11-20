@@ -1,38 +1,60 @@
-import { addSession } from "../utils/sessionStorage.controller.js"
+import { addSession } from "../utils/sessionStorage.controller.js";
 
 const btnLogin = document.getElementById('btnLogin');
 
 const auth = async ({ email, pass }) => {
-  const response = await fetch('/clientes/login', {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({ "email": email, "password": pass })
-  });
+  try {
+    const response = await fetch('/clientes/login', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ email, password: pass })
+    });
 
-  if (!response.ok) {
-    throw new Error('Error en la autenticación');
+    if (!response.ok) {
+      if (response.status === 401) {
+        throw new Error('Credenciales incorrectas');
+      } else if (response.status >= 500) {
+        throw new Error('Error del servidor, intente más tarde');
+      } else {
+        throw new Error('Error en la autenticación');
+      }
+    }
+
+    const { token } = await response.json();
+    return token;
+  } catch (error) {
+    console.error(error);
+    throw error;
   }
-
-  const { token } = await response.json();
-  return token;
 };
 
 const getClienteData = async (token) => {
-  const response = await fetch('/clientes/info', {
-    method: "GET",
-    headers: {
-      "Authorization": `Bearer ${token}`,
-      "Content-Type": "application/json"
+  try {
+    const response = await fetch('/clientes/info', {
+      method: "GET",
+      headers: {
+        "Authorization": `Bearer ${token}`,
+        "Content-Type": "application/json"
+      }
+    });
+
+    if (!response.ok) {
+      if (response.status === 403) {
+        throw new Error('Acceso denegado');
+      } else if (response.status >= 500) {
+        throw new Error('Error del servidor, intente más tarde');
+      } else {
+        throw new Error('Error al obtener datos del cliente');
+      }
     }
-  });
 
-  if (!response.ok) {
-    throw new Error('Error al obtener datos del cliente');
+    return await response.json();
+  } catch (error) {
+    console.error(error);
+    throw error;
   }
-
-  return await response.json(); 
 };
 
 btnLogin.addEventListener('click', async () => {
@@ -41,18 +63,15 @@ btnLogin.addEventListener('click', async () => {
 
   if (email !== '' && pass !== '') {
     try {
-      const token = await auth({ email, pass }); 
+      const token = await auth({ email, pass });
       const clienteData = await getClienteData(token);
       
-      addSession({
-        token,
-        clienteData 
-      });
+      addSession({ token, clienteData });
 
       window.location.href = "../home/home.html";
     } catch (error) {
       console.error(error);
-      alert('No se encontró usuario o hubo un error en el login');
+      alert(error.message);
     }
   } else {
     alert('Complete los campos requeridos');

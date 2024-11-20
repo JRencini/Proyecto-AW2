@@ -29,7 +29,7 @@ function openProductModal({ id, nombre, descripcion, precio, imagen }) {
   modal.classList.add('product-modal');
   modal.innerHTML = `
     <div class="modal-content">
-      <button class="close-btn">&times;</button>
+      <button class="close-btn" aria-label="Cerrar modal">&times;</button>
       <img src="${imagen}" class="product-img" alt="${nombre}">
       <div class="modal-body">
         <div class="mb-3 d-flex items-center justify-content-between">
@@ -38,10 +38,10 @@ function openProductModal({ id, nombre, descripcion, precio, imagen }) {
         </div>
         <p class="mb-3">${descripcion}</p>
         <label for="cantidad">Cantidad:</label>
-        <input type="number" id="cantidad" class="form-control" min="1" max="5" value="1">
+        <input type="number" id="cantidad" class="form-control" min="1" max="5" value="1" aria-label="Cantidad">
         <label for="observaciones">Observaciones:</label>
-        <textarea id="observaciones" class="form-control" rows="3"></textarea>
-        <button class="btn btn-success mt-3" id="addToCartBtn">Agregar al carrito</button>
+        <textarea id="observaciones" class="form-control" rows="3" aria-label="Observaciones"></textarea>
+        <button class="btn btn-success mt-3" id="addToCartBtn" aria-label="Agregar al carrito">Agregar al carrito</button>
       </div>
     </div>
   `;

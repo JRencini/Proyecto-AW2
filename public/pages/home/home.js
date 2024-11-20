@@ -4,16 +4,16 @@ import { fetchTiposProducto } from "../../api/tipoProducto.js";
 import { fetchProductos, fetchProductosPorCategoria } from "../../api/productos.js";
 
 const user = getSession('user');
-const userData = user.clienteData
+const userData = user.clienteData;
 const txtNombre = document.getElementById('txtNombre');
-const btnLogout = document.getElementById('btnLogout')
+const btnLogout = document.getElementById('btnLogout');
 let selectedCategoryButton = null;
 
 txtNombre.textContent = `Hola ${userData.nombre}`;
 
 const logout = (key) => {
-  sessionStorage.removeItem(key)
-}
+  sessionStorage.removeItem(key);
+};
 
 const loadCategories = async () => {
   try {
@@ -23,7 +23,7 @@ const loadCategories = async () => {
     listCategories.innerHTML = '';
     categories.forEach(category => {
       const option = document.createElement('button');
-      option.classList.add('btn', 'btn-category', 'me-2'); 
+      option.classList.add('btn', 'btn-category', 'me-2');
       option.textContent = category.nombre;
       option.dataset.codigo = category._id;
 
@@ -34,7 +34,7 @@ const loadCategories = async () => {
         option.classList.add('selected');
         selectedCategoryButton = option;
 
-        filterByCategory(category._id, category.nombre);
+        filterByCategory(category._id);
       });
 
       listCategories.appendChild(option);
@@ -45,9 +45,9 @@ const loadCategories = async () => {
     clearFilterOption.textContent = 'Quitar filtros';
 
     clearFilterOption.addEventListener('click', () => {
-      loadProducts(); 
+      loadProducts();
       if (selectedCategoryButton) {
-        selectedCategoryButton.classList.remove('selected'); 
+        selectedCategoryButton.classList.remove('selected');
         selectedCategoryButton = null;
       }
     });
@@ -56,20 +56,22 @@ const loadCategories = async () => {
 
   } catch (error) {
     console.error("Error al cargar las categorías:", error);
+    alert('Error al cargar las categorías');
   }
 };
 
-document.getElementById('btnLogout').addEventListener('click', () => {
-      logout('user');
-      window.location.href = '../login/login.html';
-    });
+btnLogout.addEventListener('click', () => {
+  logout('user');
+  window.location.href = '../login/login.html';
+});
 
 const loadProducts = async () => {
   try {
-    const products = await fetchProductos();  
+    const products = await fetchProductos();
     renderProducts(products);
   } catch (error) {
     console.error("Error al cargar los productos:", error);
+    alert('Error al cargar los productos');
   }
 };
 
@@ -78,7 +80,7 @@ const renderProducts = (productos) => {
   cardsContainer.innerHTML = '';
 
   const row = document.createElement('div');
-  row.classList.add('row', 'mb-4', 'flex', 'flex-wrap', 'justify-start', 'gap-4'); 
+  row.classList.add('row', 'mb-4', 'flex', 'flex-wrap', 'justify-start', 'gap-4');
   cardsContainer.appendChild(row);
 
   productos.forEach(product => {
@@ -89,22 +91,21 @@ const renderProducts = (productos) => {
       precio: product.precio,
       imagen: product.imagen
     });
-    row.appendChild(card); 
+    row.appendChild(card);
   });
 };
 
-
-const filterByCategory = async (categoryCode, categoryName) => {
+const filterByCategory = async (categoryCode) => {
   try {
     const filteredProducts = await fetchProductosPorCategoria(categoryCode);
-    
     renderProducts(filteredProducts);
   } catch (error) {
     console.error("Error al filtrar los productos:", error);
+    alert('Error al filtrar los productos');
   }
 };
 
 window.onload = () => {
   loadCategories();
-  loadProducts(); 
+  loadProducts();
 };
