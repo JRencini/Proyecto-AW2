@@ -5,7 +5,7 @@ import bcrypt from 'bcryptjs'
 export const createCliente = async ({nombre, telefono, email, password}) => {
   try {
     await connectToDatabase();
-    const res = await Cliente.create({nombre, telefono, email, password});
+    const res = await Cliente.create({nombre, telefono, email, password, role: 'user'});
     return JSON.parse(JSON.stringify(res));
   } catch (error) {
     console.error('Error al crear el cliente en MongoDB:', error);

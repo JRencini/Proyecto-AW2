@@ -1,10 +1,10 @@
-export const cardComponent = ({ id, nombre, descripcion, precio, imagen }) => {
+export const cardComponent = ({ id, nombre, descripcion, precio, imagenId }) => {
   const formattedPrice = precio.toLocaleString('es-AR', { style: 'currency', currency: 'ARS' });
   const card = document.createElement('div');
   card.classList.add('card', 'col-md-2', 'mb-4');
 
   card.innerHTML = `
-    <img src="${imagen}" class="card-img" alt="${nombre}">
+    <img src="/api/images/${imagenId}" class="card-img" alt="${nombre}">
     <div class="card-body">
       <h5 class="card-title">${nombre}</h5>
       <p class="card-text"><strong>${formattedPrice}</strong></p>
@@ -12,13 +12,13 @@ export const cardComponent = ({ id, nombre, descripcion, precio, imagen }) => {
   `;
 
   card.addEventListener('click', () => {
-    openProductModal({ id, nombre, descripcion, precio, imagen });
+    openProductModal({ id, nombre, descripcion, precio, imagenId });
   });
 
   return card;
 };
 
-function openProductModal({ id, nombre, descripcion, precio, imagen }) {
+function openProductModal({ id, nombre, descripcion, precio, imagenId }) {
   const formattedPrice = precio.toLocaleString('es-AR', { style: 'currency', currency: 'ARS' });
 
   const backdrop = document.createElement('div');
@@ -30,7 +30,7 @@ function openProductModal({ id, nombre, descripcion, precio, imagen }) {
   modal.innerHTML = `
     <div class="modal-content">
       <button class="close-btn" aria-label="Cerrar modal">&times;</button>
-      <img src="${imagen}" class="product-img" alt="${nombre}">
+      <img src="/api/images/${imagenId}" class="product-img" alt="${nombre}">
       <div class="modal-body">
         <div class="mb-3 d-flex items-center justify-content-between">
           <h1 class="text-4xl"><strong>${nombre}</strong></h1>
@@ -54,9 +54,9 @@ function openProductModal({ id, nombre, descripcion, precio, imagen }) {
     const cantidad = document.getElementById('cantidad').value;
     const observaciones = document.getElementById('observaciones').value;
 
-    addToCart({ id, nombre, descripcion, precio, cantidad, observaciones, imagen });
+    addToCart({ id, nombre, descripcion, precio, cantidad, observaciones, imagenId });
 
-    closeModal(); 
+    closeModal();
   });
 
   function closeModal() {

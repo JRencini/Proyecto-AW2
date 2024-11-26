@@ -1,6 +1,6 @@
 export const fetchTiposProducto = async () => {
   try {
-    const response = await fetch('/tipoProducto/tipoProductos');
+    const response = await fetch('/tipoProducto/tipoProductos');  
     if (!response.ok) {
       throw new Error('Error al obtener los tipos de producto');
     }

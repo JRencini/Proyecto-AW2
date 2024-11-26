@@ -20,4 +20,3 @@ app.use('/clientes', clientesRouter)
 app.use('/pedidos', pedidosRouter)
 app.use('/productos', productosRouter)
 app.use('/tipoProducto', tipoProductoRouter)
-

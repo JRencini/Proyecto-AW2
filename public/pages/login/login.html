@@ -6,7 +6,7 @@
   <title>Inicio de Sesión</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-lime-200 text-gray-100">
+<body class="bg-lime-200 text-gray-100 flex flex-col min-h-screen">
   <div class="flex justify-center items-center">
     <div class="bg-lime-600 rounded-3xl mt-20 p-5">
       <h1 class="text-2xl mb-4">Inicio de sesión</h1>
@@ -17,7 +17,13 @@
       </button>
     </div>
   </div>
-
+  <footer class="bg-lime-600 text-center py-3 mt-auto">
+    <div class="container mx-auto">
+      <p class="text-white">
+        Si no tienes una cuenta registrada, regístrate haciendo <a href="registro.html" class="underline">click aquí</a>.
+      </p>
+    </div>
+  </footer>
   <script type="module" src="../../auth/auth.js"></script>
 </body>
 </html>

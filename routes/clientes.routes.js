@@ -77,20 +77,21 @@ router.post('/login', async (req, res) => {
 });
 
 router.post('/nuevoCliente', async (req, res) => {
-  const { nombre, telefono, email, pass } = req.body;
-  if (!nombre || !telefono || !email || !pass) {
-    return res.status(400).json({ message: "Todos los campos del producto son obligatorios" });
+  const { nombre, telefono, email, password } = req.body;
+  if (!nombre || !email || !password) {
+    return res.status(400).json({ message: "Todos los campos del registro son obligatorios" });
   }
 
   try {
-    const hashedPass = bcrypt.hashSync(pass, 8);
-    const result = await createCliente({ nombre, telefono, email, password: hashedPass });
+    const hashedPassword = bcrypt.hashSync(password, 8);
+    const result = await createCliente({ nombre, telefono, email, password: hashedPassword });
     res.status(201).json(result);
   } catch (error) {
     console.error('Error al crear el cliente:', error);
     res.status(500).json({ message: "Error al crear el cliente" });
   }
 });
+
 
 router.get('/info', async (req, res) => {
   const authHeader = req.headers.authorization;
@@ -108,7 +109,7 @@ router.get('/info', async (req, res) => {
       return res.status(404).json({ message: "Cliente no encontrado" });
     }
 
-    res.status(200).json({ nombre: cliente.nombre, email: cliente.email, telefono: cliente.telefono });
+    res.status(200).json({ nombre: cliente.nombre, email: cliente.email, telefono: cliente.telefono, role: cliente.role });
   } catch (error) {
     console.error('Error al obtener el cliente:', error);
     res.status(500).json({ message: "Error en el servidor" });

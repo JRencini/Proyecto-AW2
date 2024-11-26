@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-lime-200 text-gray-100 flex flex-col min-h-screen">
+  <div class="container mx-auto mt-10 flex-grow">
+    <div class="flex justify-center">
+      <div class="bg-lime-600 rounded-3xl p-5 w-full max-w-md">
+        <h5 class="text-2xl text-center mb-4">Registro</h5>
+        <form id="registro">
+          <div class="mb-3">
+            <label for="nombre" class="block mb-2">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" class="w-full bg-lime-500 rounded p-2" required>
+          </div>
+          <div class="mb-3">
+            <label for="telefono" class="block mb-2">Telefono:</label>
+            <input type="text" id="telefono" name="telefono" class="w-full bg-lime-500 rounded p-2">
+          </div>
+          <div class="mb-3">
+            <label for="email" class="block mb-2">Email:</label>
+            <input type="email" id="email" name="email" class="w-full bg-lime-500 rounded p-2" required>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="block mb-2">Contraseña:</label>
+            <input type="password" id="password" name="password" class="w-full bg-lime-500 rounded p-2" required>
+          </div>
+          <div class="flex justify-center">
+            <button id="btnRegistro" type="submit" class="bg-transparent p-2 border-2 rounded hover:bg-lime-500 transition-all">
+              Registrarse
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <footer class="bg-lime-600 text-center py-3 mt-auto">
+    <div class="container mx-auto">
+      <p class="text-white">
+        Si ya tienes una cuenta registrada, inicia sesión haciendo 
+        <a href="login.html" class="underline">click aquí</a>.
+      </p>
+    </div>
+  </footer>
+  
+  <script type="module" src="registro.js"></script>
+</body>
+</html>
