@@ -45,8 +45,11 @@ export const crearProducto = async (formData) => {
 };
 
 // Actualizar producto
-export const actualizarProducto = async (id, formData) => {
+export const actualizarProducto = async (formData) => {
   try {
+    const id = formData.get('id'); 
+    formData.delete('id');
+
     const response = await fetch(`/productos/modificarProducto/${id}`, {
       method: 'PUT',
       body: formData
@@ -62,11 +65,10 @@ export const actualizarProducto = async (id, formData) => {
   }
 };
 
-// Eliminar producto
 export const eliminarProducto = async (id) => {
   try {
     const response = await fetch(`/productos/eliminarProducto/${id}`, {
-      method: 'DELETE'
+      method: 'DELETE',
     });
     if (!response.ok) {
       const errorData = await response.json();
@@ -78,3 +80,23 @@ export const eliminarProducto = async (id) => {
     throw error;
   }
 };
+
+
+export const checkProductNameExists = async (nombre) => {
+  try {
+    const response = await fetch(`/productos/verificarNombre?nombre=${encodeURIComponent(nombre)}`);
+  
+    if (!response.ok) {
+      throw new Error('Error al verificar el nombre del producto');
+    }
+    const result = await response.json();
+
+    return result.exists;
+  } catch (error) {
+    console.error('Error al verificar el nombre del producto:', error);
+    return false;
+  }
+};
+
+
+

@@ -3,6 +3,9 @@ import { createProducto, findById, findAll, findByTipo, actualizarProducto, elim
 import { upload, saveFileToGridFS } from '../db/multer.js';
 import processImage from '../db/imageProcessor.js';
 import enhanceImage from '../db/imageEnhancer.js';
+import Producto from "../db/schemas/productos.schema.js";
+import mongoose from "mongoose";
+import { connectToDatabase } from '../db/connection.js'; 
 
 const router = Router();
 
@@ -62,17 +65,32 @@ router.put('/modificarProducto/:id', upload.single('imagen'), processImage, enha
   if (!id) {
     return res.status(400).json({ message: "El ID del producto es obligatorio" });
   }
-
   try {
-    const data = { nombre, descripcion, precio, tipoProducto, disponible, ...(imagenId && { imagenId }) };
+    if (nombre) {
+      const productoExistente = await Producto.findOne({ nombre });
+      if (productoExistente && productoExistente._id.toString() !== id) {
+        return res.status(400).json({ message: 'El nombre del producto ya existe.' });
+      }
+    }
+    const data = { 
+      nombre, 
+      descripcion, 
+      precio, 
+      tipoProducto, 
+      disponible, 
+      ...(imagenId && { imagenId }) 
+    };
     const productoActualizado = await actualizarProducto(id, data);
-    
-    res.status(200).json({ message: "El producto fue modificado exitosamente", producto: productoActualizado });
+    res.status(200).json({ 
+      message: "El producto fue modificado exitosamente", 
+      producto: productoActualizado 
+    });
   } catch (error) {
     console.error('Error al actualizar el producto:', error);
     res.status(500).json({ message: "Error al actualizar el producto" });
   }
 });
+
 
 router.post('/nuevoProducto', upload.single('imagen'), processImage, enhanceImage, saveFileToGridFS, async (req, res) => {
   const { nombre, descripcion, precio, tipoProducto } = req.body;
@@ -99,12 +117,44 @@ router.delete('/eliminarProducto/:id', async (req, res) => {
   }
 
   try {
+    const producto = await findById(id);
+
+    if (!producto) {
+      return res.status(404).json({ message: "Producto no encontrado" });
+    }
+
+    if (producto.imagenId) {
+      const { conn, gfs } = await connectToDatabase();
+      const fileId = new mongoose.Types.ObjectId(producto.imagenId);
+
+      await gfs.delete(fileId); 
+    }
     const productoEliminado = await eliminarProducto(id);
-    res.status(200).json({ message: "El producto fue eliminado exitosamente", producto: productoEliminado });
+
+    res.status(200).json({ 
+      message: "El producto y su imagen asociada fueron eliminados exitosamente", 
+      producto: productoEliminado 
+    });
   } catch (error) {
-    console.error('Error al eliminar el producto:', error);
+    console.error("Error al eliminar el producto o su imagen:", error);
     res.status(500).json({ message: "Error al eliminar el producto" });
   }
 });
+// Verificar si el nombre del producto ya existe
+router.get('/verificarNombre', async (req, res) => {
+  const { nombre } = req.query;
+  if (!nombre) {
+    return res.status(400).json({ message: 'El nombre del producto es obligatorio' });
+  }
+
+  try {
+    const producto = await Producto.findOne({ nombre });
+    res.status(200).json({ exists: !!producto });
+  } catch (error) {
+    console.error('Error al verificar el nombre del producto:', error);
+    res.status(500).json({ message: 'Error al verificar el nombre del producto' });
+  }
+});
+
 
 export default router;

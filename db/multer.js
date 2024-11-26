@@ -24,10 +24,6 @@ const saveFileToGridFS = async (req, res, next) => {
     return next(new Error('No se recibió ningún archivo para subir.'));
   }
 
-  console.log(`Archivo recibido: ${req.file.originalname}`);
-  console.log(`Tamaño del archivo: ${req.file.size} bytes`);
-  console.log(`Tipo de archivo: ${req.file.mimetype}`);
-
   try {
     const { gfs } = await connectToDatabase();
 
@@ -36,8 +32,6 @@ const saveFileToGridFS = async (req, res, next) => {
       throw new Error('GridFS no está disponible. Verifica la conexión y la inicialización.');
     }
 
-    console.log('Conectado a GridFS. Preparando para subir el archivo...');
-
     const uploadStream = gfs.openUploadStream(req.file.originalname, {
       contentType: req.file.mimetype,
     });
@@ -45,7 +39,6 @@ const saveFileToGridFS = async (req, res, next) => {
     uploadStream.end(req.file.buffer);
 
     uploadStream.on('finish', () => {
-      console.log('Archivo subido con éxito. ID:', uploadStream.id);
       req.file.id = uploadStream.id; // Asignar el ID del archivo a req.file para usarlo después
       next();
     });

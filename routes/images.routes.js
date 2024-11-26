@@ -1,19 +1,19 @@
 import { Router } from 'express';
 import { connectToDatabase } from '../db/connection.js';
-import { GridFSBucket } from 'mongodb';
+import mongoose from 'mongoose';
 
 const router = Router();
 
 router.get('/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const { conn } = await connectToDatabase();
-
-    const bucket = new GridFSBucket(conn.db, { bucketName: 'uploads' });
-
-    const downloadStream = bucket.openDownloadStream(new mongoose.Types.ObjectId(id));
+    const { conn, gfs } = await connectToDatabase();
+    const downloadStream = gfs.openDownloadStream(new mongoose.Types.ObjectId(id));
 
     downloadStream.on('data', (chunk) => {
+      if (!res.headersSent) {
+        res.setHeader('Content-Type', 'image/jpeg'); // o el tipo de imagen que corresponda
+      }
       res.write(chunk);
     });
 
@@ -22,7 +22,7 @@ router.get('/:id', async (req, res) => {
       res.sendStatus(404);
     });
 
-    downloadStream.on('end', () => {
+    downloadStream.on('end', () => {  
       res.end();
     });
   } catch (error) {

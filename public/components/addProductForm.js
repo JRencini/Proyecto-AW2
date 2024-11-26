@@ -1,37 +1,36 @@
 import { checkProductNameExists } from "../api/productos.js";
 import { fetchTiposProducto } from "../api/tipoProducto.js";
 
-export const productFormComponent = ({ id, nombre, descripcion, precio, imagenId, tipoProducto, onSave }) => {
-  const originalNombre = nombre; 
-  const modalBackdrop = document.createElement('div');
-  modalBackdrop.classList.add('modal-backdrop');
-  document.body.appendChild(modalBackdrop);
-
+export const addProductFormComponent = ({ onSave }) => {
   const modal = document.createElement('div');
   modal.classList.add('product-modal');
-  const defaultImageUrl = '../../images/default-image.jpg'; 
+  const backdrop = document.createElement('div');
+  backdrop.classList.add('modal-backdrop');
+  document.body.appendChild(backdrop);
 
   modal.innerHTML = `
     <div class="modal-content">
       <button class="close-btn" aria-label="Cerrar modal">&times;</button>
-      <div id="alert" class="alert alert-danger d-none" role="alert"></div>
-      <img src="${imagenId ? `/images/${imagenId}` : defaultImageUrl}" class="product-img" alt="${nombre || 'Producto'}">
       <div class="modal-body">
+        <div id="alert" class="alert alert-danger d-none" role="alert"></div>
         <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" class="form-control" value="${nombre || ''}" aria-label="Nombre">
+        <input type="text" id="nombre" class="form-control" aria-label="Nombre">
 
         <label for="descripcion">Descripción:</label>
-        <textarea id="descripcion" class="form-control" rows="3" aria-label="Descripción">${descripcion || ''}</textarea>
+        <textarea id="descripcion" class="form-control" rows="3" aria-label="Descripción"></textarea>
 
         <label for="precio">Precio:</label>
-        <input type="number" id="precio" class="form-control" value="${precio || ''}" aria-label="Precio">
+        <input type="number" id="precio" class="form-control" aria-label="Precio">
 
         <label for="tipoProducto">Tipo de Producto:</label>
         <select id="tipoProducto" class="form-control" aria-label="Tipo de Producto">
           <!-- Las opciones se agregarán dinámicamente -->
         </select>
 
-        <button class="btn btn-success mt-3" id="saveProductBtn" aria-label="Modificar Producto">Modificar Producto</button>
+        <label for="imagen">Imagen:</label>
+        <input type="file" id="imagen" class="form-control" aria-label="Imagen">
+
+        <button class="btn btn-success mt-3" id="saveProductBtn" aria-label="Agregar Producto">Agregar Producto</button>
       </div>
     </div>
   `;
@@ -48,11 +47,11 @@ export const productFormComponent = ({ id, nombre, descripcion, precio, imagenId
   });
 
   modal.querySelector('.close-btn').addEventListener('click', closeModal);
-  modalBackdrop.addEventListener('click', closeModal);
+  backdrop.addEventListener('click', closeModal);
 
   function closeModal() {
     modal.remove();
-    modalBackdrop.remove();
+    backdrop.remove();
   }
 
   modal.querySelector('#saveProductBtn').addEventListener('click', async () => {
@@ -61,6 +60,7 @@ export const productFormComponent = ({ id, nombre, descripcion, precio, imagenId
     const descripcion = document.getElementById('descripcion').value;
     const precio = document.getElementById('precio').value;
     const tipoProducto = document.getElementById('tipoProducto').value;
+    const imagenFile = document.getElementById('imagen').files[0];
 
     // Validación del formulario
     if (nombre.length < 3) {
@@ -75,17 +75,21 @@ export const productFormComponent = ({ id, nombre, descripcion, precio, imagenId
       showAlert('Debes seleccionar un tipo de producto.');
       return;
     }
-    if (nombreExists && nombre !== originalNombre) {
+    if (!imagenFile) {
+      showAlert('Debes seleccionar una imagen.');
+      return;
+    }
+    if (nombreExists) {
       showAlert('El nombre del producto ya existe. Por favor, elige otro nombre.');
       return;
     }
 
     const formData = new FormData();
-    formData.append('id', id);
     formData.append('nombre', nombre);
     formData.append('descripcion', descripcion);
     formData.append('precio', precio);
     formData.append('tipoProducto', tipoProducto);
+    formData.append('imagen', imagenFile);
 
     await onSave({ formData });
 

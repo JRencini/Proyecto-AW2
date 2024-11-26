@@ -4,7 +4,7 @@ export const cardComponent = ({ id, nombre, descripcion, precio, imagenId }) => 
   card.classList.add('card', 'col-md-2', 'mb-4');
 
   card.innerHTML = `
-    <img src="/api/images/${imagenId}" class="card-img" alt="${nombre}">
+    <img src="/images/${imagenId}" class="card-img" alt="${nombre}">
     <div class="card-body">
       <h5 class="card-title">${nombre}</h5>
       <p class="card-text"><strong>${formattedPrice}</strong></p>
@@ -30,7 +30,7 @@ function openProductModal({ id, nombre, descripcion, precio, imagenId }) {
   modal.innerHTML = `
     <div class="modal-content">
       <button class="close-btn" aria-label="Cerrar modal">&times;</button>
-      <img src="/api/images/${imagenId}" class="product-img" alt="${nombre}">
+      <img src="/images/${imagenId}" class="product-img" alt="${nombre}">
       <div class="modal-body">
         <div class="mb-3 d-flex items-center justify-content-between">
           <h1 class="text-4xl"><strong>${nombre}</strong></h1>

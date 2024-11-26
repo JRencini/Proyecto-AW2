@@ -2,6 +2,7 @@ import { getSession } from "../../utils/sessionStorage.controller.js";
 import { fetchTiposProducto } from "../../api/tipoProducto.js";
 import { fetchProductosPorCategoria, fetchProductos, eliminarProducto, actualizarProducto, crearProducto} from "../../api/productos.js";
 import { productFormComponent } from "../../components/productForm.js";
+import { addProductFormComponent } from "../../components/addProductForm.js";
 
 const user = getSession('user');
 const userData = user.clienteData;
@@ -102,9 +103,9 @@ const renderProducts = (productos) => {
         nombre: product.nombre,
         descripcion: product.descripcion,
         precio: product.precio,
-        imagen: product.imagen,
+        imagenId: product.imagenId,
         onSave: async ({ formData }) => {
-          try {
+          try {            
             formData.append('id', product._id);
             await actualizarProducto(formData);
             loadProducts();
@@ -134,16 +135,15 @@ const renderProducts = (productos) => {
 
 
 btnAddProduct.addEventListener('click', () => {
-  productFormComponent({
+  addProductFormComponent({
     id: '',
     nombre: '',
     descripcion: '',
     precio: '',
-    imagen: '',
+    imagenId: '',
     onSave: async ({ formData }) => {
       try {
         const response = await crearProducto(formData);
-        console.log('Producto creado:', response);
         await loadProducts();
       } catch (error) {
         console.error("Error al agregar el producto:", error.message);

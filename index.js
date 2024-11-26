@@ -5,6 +5,7 @@ import clientesRouter from './routes/clientes.routes.js'
 import pedidosRouter from './routes/pedidos.routes.js'
 import productosRouter from './routes/productos.routes.js'
 import tipoProductoRouter from './routes/tipoProducto.routes.js'
+import imagesRouter from './routes/images.routes.js'
 
 const app = express()
 const port = process.env.PORT
@@ -17,6 +18,8 @@ app.listen(port, () =>{
 
 app.use(express.static('./public'))
 app.use('/clientes', clientesRouter)
+app.use('/clientes', clientesRouter)
 app.use('/pedidos', pedidosRouter)
 app.use('/productos', productosRouter)
 app.use('/tipoProducto', tipoProductoRouter)
+app.use('/images', imagesRouter)
