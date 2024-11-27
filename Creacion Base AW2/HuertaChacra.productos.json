@@ -1,0 +1,336 @@
+[{
+  "_id": {
+    "$oid": "6746050fc6cccb750595b4d4"
+  },
+  "nombre": "Coliflor",
+  "descripcion": "Coliflor de gran tamaño y sabor suave.",
+  "precio": 500,
+  "imagenId": {
+    "$oid": "6746050fc6cccb750595b4d2"
+  },
+  "tipoProducto": {
+    "$oid": "671982d2d66999848bcf015e"
+  },
+  "disponible": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674606b313fadc71397c4afe"
+  },
+  "nombre": "Bolsón de Verduras",
+  "descripcion": "Bolsón con variedad de verduras de temporada.",
+  "precio": 1600,
+  "imagenId": {
+    "$oid": "674606b313fadc71397c4afc"
+  },
+  "tipoProducto": {
+    "$oid": "671ac48c063e1257e023f4fe"
+  },
+  "disponible": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6746071513fadc71397c4b29"
+  },
+  "nombre": "Tomates Orgánicos",
+  "descripcion": "Tomates cultivados sin químicos.",
+  "precio": 600,
+  "imagenId": {
+    "$oid": "6746071513fadc71397c4b27"
+  },
+  "tipoProducto": {
+    "$oid": "671ac4b5063e1257e023f504"
+  },
+  "disponible": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6746077413fadc71397c4b3b"
+  },
+  "nombre": "Lechuga Mantecosa",
+  "descripcion": "Lechuga fresca de hoja grande.",
+  "precio": 500,
+  "imagenId": {
+    "$oid": "6746077413fadc71397c4b39"
+  },
+  "tipoProducto": {
+    "$oid": "671982d2d66999848bcf015e"
+  },
+  "disponible": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674607e817eba4340e490656"
+  },
+  "nombre": "Zanahoria",
+  "descripcion": "Zanahorias frescas y crujientes.",
+  "precio": 500,
+  "imagenId": {
+    "$oid": "674607e817eba4340e490654"
+  },
+  "tipoProducto": {
+    "$oid": "671982d2d66999848bcf015e"
+  },
+  "disponible": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6746084617eba4340e49067a"
+  },
+  "nombre": "Repollos",
+  "descripcion": "Repollos crujientes.",
+  "precio": 700,
+  "imagenId": {
+    "$oid": "6746084617eba4340e490678"
+  },
+  "tipoProducto": {
+    "$oid": "671ac4c7063e1257e023f508"
+  },
+  "disponible": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6746089017eba4340e490688"
+  },
+  "nombre": "Zapallo",
+  "descripcion": "Zapallo de sabor dulce y textura suave.",
+  "precio": 700,
+  "imagenId": {
+    "$oid": "6746089017eba4340e490686"
+  },
+  "tipoProducto": {
+    "$oid": "671982d2d66999848bcf015e"
+  },
+  "disponible": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674608ac17eba4340e490696"
+  },
+  "nombre": "Cebollas Moradas",
+  "descripcion": "Cebollas frescas y de sabor fuerte.",
+  "precio": 900,
+  "imagenId": {
+    "$oid": "674608ac17eba4340e490694"
+  },
+  "tipoProducto": {
+    "$oid": "671ac4c7063e1257e023f508"
+  },
+  "disponible": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6746092a17eba4340e4906ab"
+  },
+  "nombre": "Acelga",
+  "descripcion": "Hojas verdes y tiernas.",
+  "precio": 320,
+  "imagenId": {
+    "$oid": "6746092a17eba4340e4906a9"
+  },
+  "tipoProducto": {
+    "$oid": "671982d2d66999848bcf015e"
+  },
+  "disponible": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6746094717eba4340e4906b9"
+  },
+  "nombre": "Espinaca",
+  "descripcion": "Espinacas frescas y ricas en hierro.",
+  "precio": 420,
+  "imagenId": {
+    "$oid": "6746094717eba4340e4906b7"
+  },
+  "tipoProducto": {
+    "$oid": "671982d2d66999848bcf015e"
+  },
+  "disponible": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6746096517eba4340e4906c7"
+  },
+  "nombre": "Pepinos",
+  "descripcion": "Pepinos frescos y crujientes.",
+  "precio": 860,
+  "imagenId": {
+    "$oid": "6746096517eba4340e4906c5"
+  },
+  "tipoProducto": {
+    "$oid": "671982d2d66999848bcf015e"
+  },
+  "disponible": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6746098317eba4340e4906d6"
+  },
+  "nombre": "Remolacha",
+  "descripcion": "Remolachas de color intenso y sabor dulce.",
+  "precio": 660,
+  "imagenId": {
+    "$oid": "6746098317eba4340e4906d4"
+  },
+  "tipoProducto": {
+    "$oid": "671982d2d66999848bcf015e"
+  },
+  "disponible": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674609b517eba4340e4906e4"
+  },
+  "nombre": "Calabaza",
+  "descripcion": "Calabaza de excelente sabor.",
+  "precio": 680,
+  "imagenId": {
+    "$oid": "674609b517eba4340e4906e2"
+  },
+  "tipoProducto": {
+    "$oid": "671982d2d66999848bcf015e"
+  },
+  "disponible": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674609cb17eba4340e4906f2"
+  },
+  "nombre": "Rúcula",
+  "descripcion": "Rúcula de sabor picante y fresco.",
+  "precio": 990,
+  "imagenId": {
+    "$oid": "674609cb17eba4340e4906f0"
+  },
+  "tipoProducto": {
+    "$oid": "671982d2d66999848bcf015e"
+  },
+  "disponible": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674609e617eba4340e490700"
+  },
+  "nombre": "Lechuga gallega",
+  "descripcion": "Lechuga pero gallega.",
+  "precio": 820,
+  "imagenId": {
+    "$oid": "674609e617eba4340e4906fe"
+  },
+  "tipoProducto": {
+    "$oid": "671982d2d66999848bcf015e"
+  },
+  "disponible": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67460a0b17eba4340e49070e"
+  },
+  "nombre": "Papas Andinas",
+  "descripcion": "Papas andinas de sabor suave y textura cremosa.",
+  "precio": 590,
+  "imagenId": {
+    "$oid": "67460a0b17eba4340e49070c"
+  },
+  "tipoProducto": {
+    "$oid": "671ac4bb063e1257e023f506"
+  },
+  "disponible": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67460a6f17eba4340e490742"
+  },
+  "nombre": "Bolsón de Hortalizas",
+  "descripcion": "Bolsón con una selección de hortalizas frescas.",
+  "precio": 1760,
+  "imagenId": {
+    "$oid": "67460a6f17eba4340e490740"
+  },
+  "tipoProducto": {
+    "$oid": "671ac48c063e1257e023f4fe"
+  },
+  "disponible": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67460a8917eba4340e490750"
+  },
+  "nombre": "Frutillas Orgánicas",
+  "descripcion": "Frutillas frescas cultivadas sin químicos.",
+  "precio": 900,
+  "imagenId": {
+    "$oid": "67460a8917eba4340e49074e"
+  },
+  "tipoProducto": {
+    "$oid": "671ac4b5063e1257e023f504"
+  },
+  "disponible": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67460aa817eba4340e490759"
+  },
+  "nombre": "Brócoli",
+  "descripcion": "Brócoli fresco y de color vibrante.",
+  "precio": 900,
+  "imagenId": {
+    "$oid": "67460aa817eba4340e490757"
+  },
+  "tipoProducto": {
+    "$oid": "671982d2d66999848bcf015e"
+  },
+  "disponible": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67460acb17eba4340e490771"
+  },
+  "nombre": "Cilantro Fresco",
+  "descripcion": "Hojas de cilantro fresco y fragante.",
+  "precio": 320,
+  "imagenId": {
+    "$oid": "67460acb17eba4340e49076f"
+  },
+  "tipoProducto": {
+    "$oid": "671ac4d8063e1257e023f50c"
+  },
+  "disponible": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67460e1b75fabceac30b3d36"
+  },
+  "nombre": "Papas",
+  "descripcion": " ",
+  "precio": 320,
+  "imagenId": {
+    "$oid": "67460e1b75fabceac30b3d34"
+  },
+  "tipoProducto": {
+    "$oid": "671ac4d0063e1257e023f50a"
+  },
+  "disponible": true,
+  "__v": 0
+}]

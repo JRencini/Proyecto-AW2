@@ -1,0 +1,430 @@
+[{
+  "_id": {
+    "$oid": "673f8bb60f3c08993658c0ca"
+  },
+  "cliente": {
+    "$oid": "671c080c3cfc787114f358fe"
+  },
+  "fecha": {
+    "$date": "2024-11-21T19:36:22.525Z"
+  },
+  "cuerpo": [
+    {
+      "producto": {
+        "$oid": "671c0a0c3cfc787114f3591b"
+      },
+      "cantidad": 1,
+      "observaciones": "",
+      "_id": {
+        "$oid": "673f8bb60f3c08993658c0cb"
+      }
+    },
+    {
+      "producto": {
+        "$oid": "671c0a313cfc787114f35925"
+      },
+      "cantidad": 1,
+      "observaciones": "",
+      "_id": {
+        "$oid": "673f8bb60f3c08993658c0cc"
+      }
+    }
+  ],
+  "total": 900,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67409abde7d7255097441106"
+  },
+  "cliente": {
+    "$oid": "671c08493cfc787114f3590f"
+  },
+  "fecha": {
+    "$date": "2024-11-22T14:52:45.322Z"
+  },
+  "cuerpo": [
+    {
+      "producto": {
+        "$oid": "671c0a263cfc787114f35921"
+      },
+      "cantidad": 2,
+      "observaciones": "Uno común y el otro colorado",
+      "_id": {
+        "$oid": "67409abde7d7255097441107"
+      }
+    },
+    {
+      "producto": {
+        "$oid": "671c0a6a3cfc787114f35939"
+      },
+      "cantidad": 1,
+      "observaciones": "",
+      "_id": {
+        "$oid": "67409abde7d7255097441108"
+      }
+    }
+  ],
+  "total": 3200,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67409dd320348d8358b02811"
+  },
+  "cliente": {
+    "$oid": "671c08a23cfc787114f35915"
+  },
+  "fecha": {
+    "$date": "2024-11-22T15:05:55.680Z"
+  },
+  "cuerpo": [
+    {
+      "producto": {
+        "$oid": "671c0a0c3cfc787114f3591b"
+      },
+      "cantidad": 2,
+      "observaciones": "",
+      "_id": {
+        "$oid": "67409dd320348d8358b02812"
+      }
+    },
+    {
+      "producto": {
+        "$oid": "671c0a163cfc787114f3591d"
+      },
+      "cantidad": 3,
+      "observaciones": "",
+      "_id": {
+        "$oid": "67409dd320348d8358b02813"
+      }
+    },
+    {
+      "producto": {
+        "$oid": "671c0a313cfc787114f35925"
+      },
+      "cantidad": 1,
+      "observaciones": "",
+      "_id": {
+        "$oid": "67409dd320348d8358b02814"
+      }
+    },
+    {
+      "producto": {
+        "$oid": "671c0a7c3cfc787114f3593f"
+      },
+      "cantidad": 1,
+      "observaciones": "",
+      "_id": {
+        "$oid": "67409dd320348d8358b02815"
+      }
+    }
+  ],
+  "total": 2300,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67409df020348d8358b0281c"
+  },
+  "cliente": {
+    "$oid": "671c08273cfc787114f35909"
+  },
+  "fecha": {
+    "$date": "2024-11-22T15:06:24.112Z"
+  },
+  "cuerpo": [
+    {
+      "producto": {
+        "$oid": "671c09da3cfc787114f35919"
+      },
+      "cantidad": 2,
+      "observaciones": "",
+      "_id": {
+        "$oid": "67409df020348d8358b0281d"
+      }
+    },
+    {
+      "producto": {
+        "$oid": "671c0a433cfc787114f3592b"
+      },
+      "cantidad": 3,
+      "observaciones": "",
+      "_id": {
+        "$oid": "67409df020348d8358b0281e"
+      }
+    }
+  ],
+  "total": 4430,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67409e2820348d8358b02823"
+  },
+  "cliente": {
+    "$oid": "671c08273cfc787114f35909"
+  },
+  "fecha": {
+    "$date": "2024-11-22T15:07:20.338Z"
+  },
+  "cuerpo": [
+    {
+      "producto": {
+        "$oid": "671c0a663cfc787114f35937"
+      },
+      "cantidad": 3,
+      "observaciones": "",
+      "_id": {
+        "$oid": "67409e2820348d8358b02824"
+      }
+    }
+  ],
+  "total": 1620,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67409e5320348d8358b0282b"
+  },
+  "cliente": {
+    "$oid": "671c08163cfc787114f35905"
+  },
+  "fecha": {
+    "$date": "2024-11-22T15:08:03.852Z"
+  },
+  "cuerpo": [
+    {
+      "producto": {
+        "$oid": "671c0a4e3cfc787114f3592f"
+      },
+      "cantidad": 1,
+      "observaciones": "",
+      "_id": {
+        "$oid": "67409e5320348d8358b0282c"
+      }
+    },
+    {
+      "producto": {
+        "$oid": "671c0a613cfc787114f35935"
+      },
+      "cantidad": 1,
+      "observaciones": "",
+      "_id": {
+        "$oid": "67409e5320348d8358b0282d"
+      }
+    },
+    {
+      "producto": {
+        "$oid": "671c0a663cfc787114f35937"
+      },
+      "cantidad": 1,
+      "observaciones": "",
+      "_id": {
+        "$oid": "67409e5320348d8358b0282e"
+      }
+    },
+    {
+      "producto": {
+        "$oid": "671c0a2c3cfc787114f35923"
+      },
+      "cantidad": 1,
+      "observaciones": "",
+      "_id": {
+        "$oid": "67409e5320348d8358b0282f"
+      }
+    }
+  ],
+  "total": 2470.5,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67409eb520348d8358b02844"
+  },
+  "cliente": {
+    "$oid": "671c08163cfc787114f35905"
+  },
+  "fecha": {
+    "$date": "2024-11-22T15:09:41.090Z"
+  },
+  "cuerpo": [
+    {
+      "producto": {
+        "$oid": "671c0a3e3cfc787114f35929"
+      },
+      "cantidad": 1,
+      "observaciones": "",
+      "_id": {
+        "$oid": "67409eb520348d8358b02845"
+      }
+    },
+    {
+      "producto": {
+        "$oid": "671c0a5c3cfc787114f35933"
+      },
+      "cantidad": 1,
+      "observaciones": "",
+      "_id": {
+        "$oid": "67409eb520348d8358b02846"
+      }
+    },
+    {
+      "producto": {
+        "$oid": "671c0a563cfc787114f35931"
+      },
+      "cantidad": 1,
+      "observaciones": "",
+      "_id": {
+        "$oid": "67409eb520348d8358b02847"
+      }
+    }
+  ],
+  "total": 1240,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67409ecb20348d8358b0284c"
+  },
+  "cliente": {
+    "$oid": "671c08163cfc787114f35905"
+  },
+  "fecha": {
+    "$date": "2024-11-22T15:10:03.038Z"
+  },
+  "cuerpo": [
+    {
+      "producto": {
+        "$oid": "671c09aa3cfc787114f35917"
+      },
+      "cantidad": 3,
+      "observaciones": "Limpios para cocinar.",
+      "_id": {
+        "$oid": "67409ecb20348d8358b0284d"
+      }
+    }
+  ],
+  "total": 1290,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67409f0520348d8358b02854"
+  },
+  "cliente": {
+    "$oid": "671c0808a6d06cc62dd07235"
+  },
+  "fecha": {
+    "$date": "2024-11-22T15:11:01.761Z"
+  },
+  "cuerpo": [
+    {
+      "producto": {
+        "$oid": "671c0a703cfc787114f3593b"
+      },
+      "cantidad": 3,
+      "observaciones": "",
+      "_id": {
+        "$oid": "67409f0520348d8358b02855"
+      }
+    }
+  ],
+  "total": 1950,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67409f1320348d8358b0285a"
+  },
+  "cliente": {
+    "$oid": "671c0808a6d06cc62dd07235"
+  },
+  "fecha": {
+    "$date": "2024-11-22T15:11:15.160Z"
+  },
+  "cuerpo": [
+    {
+      "producto": {
+        "$oid": "671c09da3cfc787114f35919"
+      },
+      "cantidad": 1,
+      "observaciones": "",
+      "_id": {
+        "$oid": "67409f1320348d8358b0285b"
+      }
+    },
+    {
+      "producto": {
+        "$oid": "671c0a6a3cfc787114f35939"
+      },
+      "cantidad": 1,
+      "observaciones": "",
+      "_id": {
+        "$oid": "67409f1320348d8358b0285c"
+      }
+    }
+  ],
+  "total": 3300,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67478cb6714d3357685cc33b"
+  },
+  "cliente": {
+    "$oid": "6743b214620efa78414de61f"
+  },
+  "fecha": {
+    "$date": "2024-11-27T21:18:46.761Z"
+  },
+  "cuerpo": [
+    {
+      "producto": {
+        "$oid": "674608ac17eba4340e490696"
+      },
+      "cantidad": 2,
+      "observaciones": "",
+      "_id": {
+        "$oid": "67478cb6714d3357685cc33c"
+      }
+    },
+    {
+      "producto": {
+        "$oid": "6746089017eba4340e490688"
+      },
+      "cantidad": 3,
+      "observaciones": "sdasdasdasdas",
+      "_id": {
+        "$oid": "67478cb6714d3357685cc33d"
+      }
+    }
+  ],
+  "total": 3900,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6747ab9fe07d0a80a886c1c1"
+  },
+  "cliente": {
+    "$oid": "6743b214620efa78414de61f"
+  },
+  "fecha": {
+    "$date": "2024-11-27T23:30:39.508Z"
+  },
+  "cuerpo": [
+    {
+      "producto": {
+        "$oid": "67460acb17eba4340e490771"
+      },
+      "cantidad": 1,
+      "observaciones": "",
+      "_id": {
+        "$oid": "6747ab9fe07d0a80a886c1c2"
+      }
+    }
+  ],
+  "total": 320,
+  "__v": 0
+}]

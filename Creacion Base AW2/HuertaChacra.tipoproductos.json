@@ -1,0 +1,63 @@
+[{
+  "_id": {
+    "$oid": "671982d2d66999848bcf015e"
+  },
+  "codigo": "HO",
+  "nombre": "Hortaliza",
+  "descripcion": "Verduras frescas, generalmente de hoja o fruto.",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "671ac48c063e1257e023f4fe"
+  },
+  "codigo": "BO",
+  "nombre": "Bolson",
+  "descripcion": "Selección de productos variados en un solo paquete.",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "671ac4b5063e1257e023f504"
+  },
+  "codigo": "FR",
+  "nombre": "Fruta",
+  "descripcion": "Frutas frescas y naturales, cultivadas orgánicamente.",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "671ac4bb063e1257e023f506"
+  },
+  "codigo": "RA",
+  "nombre": "Raíz Comestible",
+  "descripcion": "Verduras que se cultivan bajo tierra, como zanahorias y remolachas.",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "671ac4c7063e1257e023f508"
+  },
+  "codigo": "BU",
+  "nombre": "Bulbo",
+  "descripcion": "Verduras de bulbo, como cebollas y ajos.",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "671ac4d0063e1257e023f50a"
+  },
+  "codigo": "TU",
+  "nombre": "Tubérculo",
+  "descripcion": "Verduras ricas en almidón, como papas y batatas.",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "671ac4d8063e1257e023f50c"
+  },
+  "codigo": "HE",
+  "nombre": "Hierba Aromática",
+  "descripcion": "Hierbas frescas que se usan para dar sabor y aroma a los alimentos.",
+  "__v": 0
+}]

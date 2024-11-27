@@ -1,0 +1,300 @@
+[{
+  "_id": {
+    "$oid": "67455135c95dc4a61db4b381"
+  },
+  "length": 22870,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2024-11-26T04:40:21.337Z"
+  },
+  "filename": "rucula.jpg",
+  "contentType": "image/jpeg"
+},
+{
+  "_id": {
+    "$oid": "6745c73e114384e1b873fa77"
+  },
+  "length": 42940,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2024-11-26T13:03:58.903Z"
+  },
+  "filename": "coliflor.jpg",
+  "contentType": "image/jpeg"
+},
+{
+  "_id": {
+    "$oid": "6745c772114384e1b873fa82"
+  },
+  "length": 42940,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2024-11-26T13:04:50.518Z"
+  },
+  "filename": "coliflor.jpg",
+  "contentType": "image/jpeg"
+},
+{
+  "_id": {
+    "$oid": "6746050fc6cccb750595b4d2"
+  },
+  "length": 42940,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2024-11-26T17:27:43.199Z"
+  },
+  "filename": "coliflor.jpg",
+  "contentType": "image/jpeg"
+},
+{
+  "_id": {
+    "$oid": "674606b313fadc71397c4afc"
+  },
+  "length": 55088,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2024-11-26T17:34:43.603Z"
+  },
+  "filename": "bolson_verduras.jpg",
+  "contentType": "image/jpeg"
+},
+{
+  "_id": {
+    "$oid": "6746071513fadc71397c4b27"
+  },
+  "length": 69706,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2024-11-26T17:36:21.926Z"
+  },
+  "filename": "tomates_organicos.jpg",
+  "contentType": "image/jpeg"
+},
+{
+  "_id": {
+    "$oid": "6746077413fadc71397c4b39"
+  },
+  "length": 64592,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2024-11-26T17:37:56.878Z"
+  },
+  "filename": "lechuga_mantecosa.jpg",
+  "contentType": "image/jpeg"
+},
+{
+  "_id": {
+    "$oid": "674607e817eba4340e490654"
+  },
+  "length": 28716,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2024-11-26T17:39:52.871Z"
+  },
+  "filename": "zanahoria.jpg",
+  "contentType": "image/jpeg"
+},
+{
+  "_id": {
+    "$oid": "6746084617eba4340e490678"
+  },
+  "length": 37760,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2024-11-26T17:41:26.706Z"
+  },
+  "filename": "repollo.jpg",
+  "contentType": "image/jpeg"
+},
+{
+  "_id": {
+    "$oid": "6746089017eba4340e490686"
+  },
+  "length": 36100,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2024-11-26T17:42:40.120Z"
+  },
+  "filename": "zapallo.jpg",
+  "contentType": "image/jpeg"
+},
+{
+  "_id": {
+    "$oid": "674608ac17eba4340e490694"
+  },
+  "length": 19484,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2024-11-26T17:43:08.607Z"
+  },
+  "filename": "cebollas_moradas.jpg",
+  "contentType": "image/jpeg"
+},
+{
+  "_id": {
+    "$oid": "6746092a17eba4340e4906a9"
+  },
+  "length": 47768,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2024-11-26T17:45:14.604Z"
+  },
+  "filename": "acelga.jpg",
+  "contentType": "image/jpeg"
+},
+{
+  "_id": {
+    "$oid": "6746094717eba4340e4906b7"
+  },
+  "length": 26864,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2024-11-26T17:45:43.420Z"
+  },
+  "filename": "espinaca.jpg",
+  "contentType": "image/jpeg"
+},
+{
+  "_id": {
+    "$oid": "6746096517eba4340e4906c5"
+  },
+  "length": 27538,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2024-11-26T17:46:13.260Z"
+  },
+  "filename": "pepinos.jpg",
+  "contentType": "image/jpeg"
+},
+{
+  "_id": {
+    "$oid": "6746098317eba4340e4906d4"
+  },
+  "length": 41306,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2024-11-26T17:46:43.190Z"
+  },
+  "filename": "remolacha.jpg",
+  "contentType": "image/jpeg"
+},
+{
+  "_id": {
+    "$oid": "674609b517eba4340e4906e2"
+  },
+  "length": 27908,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2024-11-26T17:47:33.101Z"
+  },
+  "filename": "calabaza.jpg",
+  "contentType": "image/jpeg"
+},
+{
+  "_id": {
+    "$oid": "674609cb17eba4340e4906f0"
+  },
+  "length": 22870,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2024-11-26T17:47:55.337Z"
+  },
+  "filename": "rucula.jpg",
+  "contentType": "image/jpeg"
+},
+{
+  "_id": {
+    "$oid": "674609e617eba4340e4906fe"
+  },
+  "length": 71538,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2024-11-26T17:48:22.647Z"
+  },
+  "filename": "lechugaGallega.jpg",
+  "contentType": "image/jpeg"
+},
+{
+  "_id": {
+    "$oid": "67460a0b17eba4340e49070c"
+  },
+  "length": 93774,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2024-11-26T17:48:59.740Z"
+  },
+  "filename": "papas_andinas.jpg",
+  "contentType": "image/jpeg"
+},
+{
+  "_id": {
+    "$oid": "67460a6f17eba4340e490740"
+  },
+  "length": 35500,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2024-11-26T17:50:39.376Z"
+  },
+  "filename": "bolson_hortalizas.jpg",
+  "contentType": "image/jpeg"
+},
+{
+  "_id": {
+    "$oid": "67460a8917eba4340e49074e"
+  },
+  "length": 38404,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2024-11-26T17:51:05.254Z"
+  },
+  "filename": "frutillas.jpg",
+  "contentType": "image/jpeg"
+},
+{
+  "_id": {
+    "$oid": "67460aa817eba4340e490757"
+  },
+  "length": 103736,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2024-11-26T17:51:36.014Z"
+  },
+  "filename": "brocoli.jpg",
+  "contentType": "image/jpeg"
+},
+{
+  "_id": {
+    "$oid": "67460acb17eba4340e49076f"
+  },
+  "length": 44626,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2024-11-26T17:52:11.771Z"
+  },
+  "filename": "cilantro.jpg",
+  "contentType": "image/jpeg"
+},
+{
+  "_id": {
+    "$oid": "67460df875fabceac30b3d30"
+  },
+  "length": 9740,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2024-11-26T18:05:44.828Z"
+  },
+  "filename": "istockphoto-157430678-612x612.jpg",
+  "contentType": "image/jpeg"
+},
+{
+  "_id": {
+    "$oid": "67460e1b75fabceac30b3d34"
+  },
+  "length": 9740,
+  "chunkSize": 261120,
+  "uploadDate": {
+    "$date": "2024-11-26T18:06:19.608Z"
+  },
+  "filename": "istockphoto-157430678-612x612.jpg",
+  "contentType": "image/jpeg"
+}]
