@@ -13,15 +13,17 @@ export const createProducto = async ({ nombre, descripcion, precio, imagenId, ti
 };
 
 
-export const findAll = async () => {
+export const findAll = async (filter = {}) => {
   try {
     await connectToDatabase();
-    const res = await Producto.find().populate('tipoProducto');
+    const res = await Producto.find(filter).populate('tipoProducto');
     return JSON.parse(JSON.stringify(res));
   } catch (error) {
     console.error('Error al buscar los productos:', error);
+    throw error;
   }
 };
+
 
 export const findById = async (id) => {
   try {

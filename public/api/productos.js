@@ -1,10 +1,16 @@
-// Obtener todos los productos
-export const fetchProductos = async () => {
+export const fetchProductos = async (soloDisponibles = false, tipoProductoID = null) => {
   try {
-    const response = await fetch('/productos/productos');
+    const params = new URLSearchParams();
+    if (soloDisponibles) params.append('disponibles', true);
+    if (tipoProductoID) params.append('tipoProducto', tipoProductoID);
+
+    const url = `/productos/producto?${params.toString()}`;
+    const response = await fetch(url);
+
     if (!response.ok) {
       throw new Error('Error al obtener los productos');
     }
+
     return response.json();
   } catch (error) {
     console.error('Error al obtener los productos:', error);
@@ -12,19 +18,6 @@ export const fetchProductos = async () => {
   }
 };
 
-// Obtener productos por categoría
-export const fetchProductosPorCategoria = async (tipoProductoID) => {
-  try {
-    const response = await fetch(`/productos/productosPorTipo/${tipoProductoID}`);
-    if (!response.ok) {
-      throw new Error('Error al obtener productos por categoría');
-    }
-    return response.json();
-  } catch (error) {
-    console.error('Error al obtener productos por categoría:', error);
-    throw error;
-  }
-};
 
 // Crear producto
 export const crearProducto = async (formData) => {
@@ -77,6 +70,27 @@ export const eliminarProducto = async (id) => {
     return response.json();
   } catch (error) {
     console.error('Error al eliminar el producto:', error);
+    throw error;
+  }
+};
+
+export const actualizarDisponibilidadProducto = async (id) => {
+  try {
+    const response = await fetch(`/productos/modificarDisponibilidadProducto/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(`Error al modificar el producto: ${errorData.message}`);
+    }
+
+    return response.json();
+  } catch (error) {
+    console.error('Error al modificar el producto:', error);
     throw error;
   }
 };

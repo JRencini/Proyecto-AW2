@@ -9,15 +9,29 @@ import { connectToDatabase } from '../db/connection.js';
 
 const router = Router();
 
-router.get('/productos', async (req, res) => {
+router.get('/producto', async (req, res) => {
+  const { disponibles, tipoProducto } = req.query;
+
   try {
-    const result = await findAll();
+    const filter = {};
+    if (disponibles !== undefined) {
+      filter.disponible = disponibles === 'true';
+    }
+    if (tipoProducto) {
+      if (mongoose.Types.ObjectId.isValid(tipoProducto)) {
+        filter.tipoProducto = new mongoose.Types.ObjectId(tipoProducto);
+      } else {
+        return res.status(400).json({ message: "El ID del tipo de producto no es válido" });
+      }
+    }
+    const result = await findAll(filter);
     res.status(200).json(result);
   } catch (error) {
     console.error('Error al obtener los productos:', error);
     res.status(500).json({ message: "Error al obtener los productos" });
   }
 });
+
 
 router.get('/productosPorID/:id', async (req, res) => {
   const { id } = req.params;
@@ -35,25 +49,6 @@ router.get('/productosPorID/:id', async (req, res) => {
   } catch (error) {
     console.error('Error al obtener el producto por ID:', error);
     res.status(500).json({ message: "Error al obtener el producto" });
-  }
-});
-
-router.get('/productosPorTipo/:id', async (req, res) => {
-  const tipoProducto = req.params.id;
-
-  if (!tipoProducto) {
-    return res.status(400).json({ message: "El ID del tipo de producto es obligatorio" });
-  }
-
-  try {
-    const result = await findByTipo(tipoProducto);
-    if (!result.length) {
-      return res.status(404).json({ message: "No se encontraron productos para la categoría indicada" });
-    }
-    res.status(200).json(result);
-  } catch (error) {
-    console.error('Error al obtener productos por tipo:', error);
-    res.status(500).json({ message: "Error al obtener los productos" });
   }
 });
 
@@ -90,6 +85,33 @@ router.put('/modificarProducto/:id', upload.single('imagen'), processImage, enha
     res.status(500).json({ message: "Error al actualizar el producto" });
   }
 });
+
+router.put('/modificarDisponibilidadProducto/:id', async (req, res) => {
+  const { id } = req.params;
+  if (!id) {
+    return res.status(400).json({ message: "El ID del producto es obligatorio" });
+  }
+  try {
+    const producto = await Producto.findById(id);
+    if (!producto) {
+      return res.status(404).json({ message: "Producto no encontrado" });
+    }
+    const nuevoValorDisponibilidad = !producto.disponible;
+    const productoActualizado = await Producto.findByIdAndUpdate(
+      id,
+      { disponible: nuevoValorDisponibilidad },
+      { new: true }
+    );
+    res.status(200).json({
+      message: "La disponibilidad del producto fue actualizada exitosamente",
+      producto: productoActualizado
+    });
+  } catch (error) {
+    console.error('Error al actualizar la disponibilidad del producto:', error);
+    res.status(500).json({ message: "Error al actualizar la disponibilidad del producto" });
+  }
+});
+
 
 
 router.post('/nuevoProducto', upload.single('imagen'), processImage, enhanceImage, saveFileToGridFS, async (req, res) => {

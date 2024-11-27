@@ -54,7 +54,7 @@ function renderCart() {
     return `
       <div class="d-flex items-center border-bottom py-2 cart-item justify-content-between">
         <div class="relative flex items-center">
-          <img src="${producto.imagen}" alt="${producto.nombre}" class="cartItem-img">
+          <img src="/images/${producto.imagenId}" alt="${producto.nombre}" class="cartItem-img">
           <div>
             <h1 class="text-xl ml-8"><strong>${producto.nombre}</strong></h1>
             <p class="text-sm ml-8 mt-6">Observaciones: ${producto.observaciones || 'Ninguna'}</p>

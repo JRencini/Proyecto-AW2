@@ -1,13 +1,16 @@
 import { getSession } from "../../utils/sessionStorage.controller.js";
 import { cardComponent } from "../../components/card.js";
 import { fetchTiposProducto } from "../../api/tipoProducto.js";
-import { fetchProductos, fetchProductosPorCategoria } from "../../api/productos.js";
+import { fetchProductos } from "../../api/productos.js";
 
 const user = getSession('user');
 const userData = user.clienteData;
 const txtNombre = document.getElementById('txtNombre');
 const btnLogout = document.getElementById('btnLogout');
 const btnAddProduct = document.getElementById('btnAddProduct');
+const searchProduct = document.getElementById('searchProduct');
+const filterType = document.getElementById('filterType');
+const cardsContainer = document.getElementById('cardsContainer');
 let selectedCategoryButton = null;
 
 txtNombre.textContent = `Hola ${userData.nombre}`;
@@ -40,7 +43,7 @@ const loadCategories = async () => {
         option.classList.add('selected');
         selectedCategoryButton = option;
 
-        filterByCategory(category._id);
+        loadProducts({ categoria: category._id });
       });
 
       listCategories.appendChild(option);
@@ -65,9 +68,20 @@ const loadCategories = async () => {
   }
 };
 
-const loadProducts = async () => {
+const loadProducts = async (filter = {}, search = '') => {
   try {
-    const products = await fetchProductos();
+    const { categoria = null, disponibles = true } = filter;
+
+    // Usar la función fetchProductos con parámetros
+    let products = await fetchProductos(disponibles, categoria);
+
+    // Filtrar por texto si se proporciona
+    if (search) {
+      products = products.filter(product => 
+        product.nombre.toLowerCase().includes(search.toLowerCase())
+      );
+    }
+
     renderProducts(products);
   } catch (error) {
     console.error("Error al cargar los productos:", error);
@@ -76,7 +90,6 @@ const loadProducts = async () => {
 };
 
 const renderProducts = (productos) => {
-  const cardsContainer = document.getElementById('cardsContainer');
   cardsContainer.innerHTML = '';
 
   const row = document.createElement('div');
@@ -95,19 +108,8 @@ const renderProducts = (productos) => {
   });
 };
 
-
-const filterByCategory = async (categoryCode) => {
-  try {
-    const filteredProducts = await fetchProductosPorCategoria(categoryCode);
-    renderProducts(filteredProducts);
-  } catch (error) {
-    console.error("Error al filtrar los productos:", error);
-    alert('Error al filtrar los productos');
-  }
-};
-
 window.onload = () => {
-  if (userData.role === 'admin') {
+  if (userData.role === 'admin' && btnAddProduct) {
     btnAddProduct.classList.remove('d-none');
     btnAddProduct.addEventListener('click', function() {
       window.location.href = '../productos/productos.html';
@@ -115,4 +117,10 @@ window.onload = () => {
   }
   loadCategories();
   loadProducts();
+
+  if (searchProduct) {
+    searchProduct.addEventListener('input', () => {
+      loadProducts({}, searchProduct.value);
+    });
+  }
 };
